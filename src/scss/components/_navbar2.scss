@@ -1,0 +1,65 @@
+.navbar2 {
+  max-width: 90rem;
+  padding: 1rem 1rem;
+  background: $primary-white;
+  @include flexJustifybetweenAlignCenter;
+
+  &__brand {
+    @include flexJustifyCenterAlignCenter;
+    gap: 1rem;
+  }
+
+  &__menuBtn {
+    @include commonBtn;
+  }
+
+  &__list {
+    display: none;
+    gap: 2.5rem;
+  }
+
+  &__item {
+    @include flexJustifyCenterAlignCenter;
+    color: $neutral-07100;
+    font-family: $space-font;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  &__dropDown {
+    background: transparent;
+    font-family: inherit;
+  }
+
+  &__tools {
+    display: flex;
+    gap: 1rem;
+  }
+  &__tool {
+    display: none;
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar2 {
+    &__menuBtn {
+      display: none;
+    }
+
+    &__list {
+      display: flex;
+    }
+
+    &__tool {
+      display: flex;
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .navbar2 {
+    padding: 1rem 10rem;
+  }
+}

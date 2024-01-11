@@ -1,0 +1,38 @@
+::after,
+::before,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-feature-settings: "clig" off, "liga" off;
+  background: #f4f4f4;
+}
+// buttons
+button {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  transition: $transition;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// images
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+// ul
+ul {
+  list-style: none;
+}
+// anchor
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,21 @@
+.wishCounter {
+  display: flex;
+  gap: 0.25rem;
+
+  &__btn {
+    @include commonBtn;
+  }
+
+  &__wishCount {
+    width: 1.25rem;
+    height: 1.25rem;
+    @include gridPlaceContentCenter;
+    border-radius: 50%;
+    background: $neutral-07100;
+    color: $primary-white;
+    font-family: $inter-font;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+  }
+}

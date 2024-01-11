@@ -1,0 +1,50 @@
+.navbar1 {
+  background: $green;
+  max-width: 90rem;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  @include flexJustifyCenterAlignCenter;
+  gap: 0.75rem;
+  font-family: $inter-font;
+  color: $brand-color;
+  position: relative;
+
+  &__text {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  &__btn {
+    @include flexJustifyCenterAlignCenter;
+    gap: 0.25rem;
+    text-transform: capitalize;
+    background: transparent;
+    border-bottom: 1px solid $brand-color;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    display: none;
+    &:hover {
+      border-bottom: 1px solid $primary-white;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: 0;
+    margin-right: 1rem;
+    background: transparent;
+    &:hover {
+      background: $primary-white;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar1 {
+    &__btn {
+      display: inline-block;
+    }
+  }
+}

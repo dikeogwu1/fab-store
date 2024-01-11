@@ -1,0 +1,60 @@
+/* Apply a subtle box shadow on hover */
+input[type="text"]:hover,
+:hover {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+// MINXIN
+@mixin flexJustifyCenterAlignCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flexJustifybetweenAlignCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin gridPlaceContentCenter {
+  display: grid;
+  place-content: center;
+}
+@mixin commonBtn {
+  background: transparent;
+  &:hover {
+    background: $green;
+  }
+}
+
+/* basic container */
+
+.container {
+  width: 100%;
+  padding: 1rem;
+
+  &--fluid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.link {
+  font-family: inherit;
+  color: inherit;
+}
+
+.loading {
+  width: 6rem;
+  height: 6rem;
+  border: 5px solid var(--primary-grey);
+  border-radius: 50%;
+  border-top-color: var(--primary-700);
+  animation: spinner 2s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

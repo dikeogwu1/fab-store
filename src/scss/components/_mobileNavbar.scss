@@ -13,7 +13,7 @@
   &__wrapper {
     width: 95%;
     background: $primary-white;
-    @include flexJustifybetweenAlignCenter;
+    @include flexJustifyBetweenAlignCenter;
     flex-direction: column;
     min-width: 21.4375rem;
     height: 100%;
@@ -34,7 +34,7 @@
   }
 
   &__header {
-    @include flexJustifybetweenAlignCenter;
+    @include flexJustifyBetweenAlignCenter;
     align-self: stretch;
   }
   &__close {
@@ -80,7 +80,7 @@
   &__item {
     max-width: 18.4375rem;
     padding-bottom: 0.5rem;
-    @include flexJustifybetweenAlignCenter;
+    @include flexJustifyBetweenAlignCenter;
     gap: 0.625rem;
     height: 2rem;
     align-self: stretch;
@@ -108,14 +108,14 @@
 
   &__bottom {
     height: 13.125rem;
-    @include flexJustifybetweenAlignCenter;
+    @include flexJustifyBetweenAlignCenter;
     flex-direction: column;
     align-self: stretch;
   }
 
   &__wishListCount,
   &__cartItemsCount {
-    @include flexJustifybetweenAlignCenter;
+    @include flexJustifyBetweenAlignCenter;
     max-width: 18.4375rem;
     padding-bottom: 0.5rem;
     align-self: stretch;

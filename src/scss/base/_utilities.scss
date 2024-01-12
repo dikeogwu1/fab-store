@@ -10,10 +10,15 @@ input[type="text"]:hover,
   justify-content: center;
   align-items: center;
 }
-@mixin flexJustifybetweenAlignCenter {
+@mixin flexJustifyBetweenAlignCenter {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@mixin flexJustifyBetweenAlignEnd {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 @mixin gridPlaceContentCenter {
   display: grid;

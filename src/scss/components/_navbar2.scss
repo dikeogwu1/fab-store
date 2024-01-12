@@ -2,7 +2,7 @@
   max-width: 90rem;
   padding: 1rem 1rem;
   background: $primary-white;
-  @include flexJustifybetweenAlignCenter;
+  @include flexJustifyBetweenAlignCenter;
 
   &__brand {
     @include flexJustifyCenterAlignCenter;
@@ -58,7 +58,7 @@
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1200px) {
   .navbar2 {
     padding: 1rem 10rem;
   }

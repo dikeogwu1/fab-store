@@ -4,6 +4,7 @@
 @import "./base/utilities";
 
 // layouts
+@import "./layouts//featured";
 
 // components
 @import "./components/navbar1";
@@ -12,3 +13,4 @@
 @import "./components/cartItemsCounter";
 @import "./components/wishListCounter";
 @import "./components/carousel";
+@import "./components/featuredItem";

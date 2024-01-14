@@ -4,6 +4,7 @@ import Navbar2 from "../components/Navbar2";
 import Carousel from "../components/Carousel";
 import Featured from "../layouts/Featured";
 import ShopCategories from "../layouts/ShopCategories";
+import LimitedEdition from "../layouts/LimitedEdition";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Carousel />
       <Featured />
       <ShopCategories />
+      <LimitedEdition />
     </>
   );
 };

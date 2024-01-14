@@ -6,6 +6,7 @@
 // layouts
 @import "./layouts/featured";
 @import "./layouts/shopCategories";
+@import "./layouts/limitedEdition";
 
 // components
 @import "./components/navbar1";
@@ -15,4 +16,5 @@
 @import "./components/wishListCounter";
 @import "./components/carousel";
 @import "./components/featuredItem";
-@import "./components/shopCategory.scss";
+@import "./components/shopCategory";
+@import "./components/countDownTimer";

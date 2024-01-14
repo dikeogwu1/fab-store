@@ -1,0 +1,49 @@
+.shopCategory {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  &__name {
+    color: $Neutrals-2;
+    text-align: center;
+    font-family: $popins-font;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+    margin-top: 1.44rem;
+  }
+}
+
+@media screen and (min-width: 300px) {
+  .shopCategory {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    &__imgBox {
+      height: 8.25rem;
+    }
+  }
+}
+@media screen and (min-width: 400px) {
+  .shopCategory {
+    &__imgBox {
+      height: 10.25rem;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .shopCategory {
+    grid-template-columns: repeat(3, 1fr);
+
+    &__imgBox {
+      height: 13.3125rem;
+    }
+  }
+}
+@media screen and (min-width: 1200px) {
+  .shopCategory {
+    &__imgBox {
+      height: 19.3125rem;
+    }
+  }
+}

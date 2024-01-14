@@ -11,10 +11,9 @@
     display: flex;
     position: relative;
     width: 100%;
-    min-height: 43rem;
+    min-height: 47rem;
     height: auto;
     overflow: hidden;
-    padding: 2rem 0rem;
   }
 
   &__item {
@@ -151,6 +150,12 @@
 
 @media screen and (min-width: 300px) {
   .carousel {
+    &__container {
+      min-height: 50rem;
+      height: auto;
+      padding: 1rem 0 0 0;
+    }
+
     &__imgBox {
       width: 250px;
     }

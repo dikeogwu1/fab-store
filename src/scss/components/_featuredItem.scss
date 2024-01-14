@@ -6,6 +6,7 @@
   &::-webkit-scrollbar {
     width: 100%;
     height: 6px;
+    display: none;
   }
   &::-webkit-scrollbar-thumb {
     background: lighten($color: $neutral-0100, $amount: 20);
@@ -165,13 +166,28 @@
 @media screen and (min-width: 300px) {
   .featuredItem {
     &__imgBox {
-      width: 14.4375rem;
-      height: 19.24338rem;
+      width: 17.5rem;
+      height: 22.24338rem;
     }
 
     &__btn {
       width: 12.67413rem;
       height: 2.53638rem;
+    }
+  }
+}
+@media screen and (min-width: 400px) {
+  .featuredItem {
+    &__imgBox {
+      width: 19.5rem;
+      height: 24.24338rem;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .featuredItem {
+    &::-webkit-scrollbar {
+      display: contents;
     }
   }
 }

@@ -3,6 +3,7 @@ import Navbar2 from "../components/Navbar2";
 // import MobileNavbar from "../components/MobileNavbar";
 import Carousel from "../components/Carousel";
 import Featured from "../layouts/Featured";
+import ShopCategories from "../layouts/ShopCategories";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       {/* <MobileNavbar /> */}
       <Carousel />
       <Featured />
+      <ShopCategories />
     </>
   );
 };

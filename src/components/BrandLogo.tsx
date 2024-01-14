@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const BrandLogo = () => {
   return (
     <Link to='/'>
-      <strong>3elegant.</strong>
+      <strong>FAB'store</strong>
     </Link>
   );
 };

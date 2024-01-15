@@ -1,9 +1,4 @@
-type categories = {
-  id: number;
-  name: string;
-  img: string;
-}[];
-
+import { categories } from "../../types/randomTypes";
 export const shopCategories: categories = [
   {
     id: 1,

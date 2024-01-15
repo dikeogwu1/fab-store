@@ -8,3 +8,37 @@ export type timer = {
   minutes: string;
   seconds: string;
 };
+
+// CAROUSEL
+export type carousel = {
+  id: number;
+  title: string;
+  desc: string;
+  img: string;
+  link: string;
+  btn: string;
+}[];
+
+// FEATURED ITEMS
+export type featured = {
+  id: number;
+  name: string;
+  price: string;
+  discount?: string;
+  img: string;
+}[];
+
+// CATEGORIES
+export type categories = {
+  id: number;
+  name: string;
+  img: string;
+}[];
+
+// COLLECTION
+export type collection = {
+  id: number;
+  name: string;
+  img: string;
+  link: string;
+}[];

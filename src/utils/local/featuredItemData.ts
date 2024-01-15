@@ -1,11 +1,4 @@
-type featured = {
-  id: number;
-  name: string;
-  price: string;
-  discount?: string;
-  img: string;
-}[];
-
+import { featured } from "../../types/randomTypes";
 export const featuredItemData: featured = [
   {
     id: 1,

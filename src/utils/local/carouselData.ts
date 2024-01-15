@@ -1,16 +1,5 @@
-// import arrow icons
-
-type carouselData = {
-  id: number;
-  title: string;
-  desc: string;
-  img: string;
-  link: string;
-  btn: string;
-}[];
-
-// carousel data
-export const carouselData: carouselData = [
+import { carousel } from "../../types/randomTypes";
+export const carouselData: carousel = [
   {
     id: 1,
     title: "Listen to the amazing music sound.",

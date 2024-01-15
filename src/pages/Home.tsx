@@ -5,6 +5,7 @@ import Carousel from "../components/Carousel";
 import Featured from "../layouts/Featured";
 import ShopCategories from "../layouts/ShopCategories";
 import LimitedEdition from "../layouts/LimitedEdition";
+import ShopCollections from "../layouts/ShopCollections";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Featured />
       <ShopCategories />
       <LimitedEdition />
+      <ShopCollections />
     </>
   );
 };

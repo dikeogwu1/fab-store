@@ -5,7 +5,7 @@ const Collections = () => {
   return (
     <div className='collections'>
       {shopCollections.map((collection, i) => {
-        const { id, img, name, link } = collection;
+        const { id, img, name } = collection;
         let coordinate: string = "column";
         if (i === 0) {
           coordinate = "firstColumn";

@@ -1,0 +1,53 @@
+.articles {
+  padding: 1rem 1rem;
+  margin-top: 2.5rem;
+
+  &__header {
+    @include flexJustifyBetweenAlignEnd;
+  }
+
+  &__tittle {
+    color: $black-100;
+    font-family: $popins-font;
+    font-size: 2.125rem;
+    font-weight: 500;
+    line-height: 2.375rem;
+    letter-spacing: -0.0375rem;
+    max-width: 9.5rem;
+  }
+
+  &__btn {
+    @include flexJustifyBetweenAlignCenter;
+    gap: 0.25rem;
+    color: $black-900;
+    font-family: $inter-font;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    background: transparent;
+    border-bottom: 1px solid $neutral-07100;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .articles {
+    &__tittle {
+      font-size: 2.5rem;
+      line-height: 2.75rem;
+      letter-spacing: -0.025rem;
+      max-width: fit-content;
+    }
+    &__btn {
+      color: $neutral-07100;
+      font-size: 1rem;
+      line-height: 1.75rem;
+      letter-spacing: -0.025rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .articles {
+    padding: 3rem 10rem 8rem 10rem;
+  }
+}

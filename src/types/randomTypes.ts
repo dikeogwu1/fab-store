@@ -40,5 +40,11 @@ export type collection = {
   id: number;
   name: string;
   img: string;
-  link: string;
+}[];
+
+// LATEST ARTICLES
+export type articles = {
+  id: number;
+  img: string;
+  name: string;
 }[];

@@ -28,6 +28,12 @@ export type featured = {
   img: string;
 }[];
 
+// INSTAGRAM
+export type instagram = {
+  id: number;
+  img: string;
+}[];
+
 // CATEGORIES
 export type categories = {
   id: number;

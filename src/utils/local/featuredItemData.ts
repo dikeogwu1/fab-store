@@ -1,4 +1,4 @@
-import { featured } from "../../types/randomTypes";
+import { featured } from "../../types/random";
 export const featuredItemData: featured = [
   {
     id: 1,

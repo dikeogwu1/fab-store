@@ -1,4 +1,4 @@
-import { collection } from "../../types/randomTypes";
+import { collection } from "../../types/random";
 export const shopCollections: collection = [
   {
     id: 1,

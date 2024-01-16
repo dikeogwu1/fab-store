@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { timer } from "../types/randomTypes";
+import { timer } from "../types/random";
 
 const times = {
   days: "0",

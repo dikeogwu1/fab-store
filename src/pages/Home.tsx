@@ -9,6 +9,7 @@ import ShopCollections from "../layouts/ShopCollections";
 import LatestArticles from "../layouts/LatestArticles";
 import NewsLetter from "../layouts/NewsLetter";
 import NewsFeed from "../layouts/NewsFeed";
+import InstagramImg from "../layouts/InstagramImg";
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
       <LatestArticles />
       <NewsLetter />
       <NewsFeed />
+      <InstagramImg />
     </>
   );
 };

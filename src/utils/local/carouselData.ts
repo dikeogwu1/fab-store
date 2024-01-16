@@ -1,4 +1,4 @@
-import { carousel } from "../../types/randomTypes";
+import { carousel } from "../../types/random";
 export const carouselData: carousel = [
   {
     id: 1,

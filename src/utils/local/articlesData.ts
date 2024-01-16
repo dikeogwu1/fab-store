@@ -1,4 +1,4 @@
-import { articles } from "../../types/randomTypes";
+import { articles } from "../../types/random";
 
 export const latestArticles: articles = [
   {

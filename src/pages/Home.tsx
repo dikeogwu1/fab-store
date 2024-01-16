@@ -7,6 +7,7 @@ import ShopCategories from "../layouts/ShopCategories";
 import LimitedEdition from "../layouts/LimitedEdition";
 import ShopCollections from "../layouts/ShopCollections";
 import LatestArticles from "../layouts/LatestArticles";
+import NewsLetter from "../layouts/NewsLetter";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <LimitedEdition />
       <ShopCollections />
       <LatestArticles />
+      <NewsLetter />
     </>
   );
 };

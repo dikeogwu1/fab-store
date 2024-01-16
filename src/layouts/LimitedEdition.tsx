@@ -14,7 +14,9 @@ const LimitedEdition = () => {
       <div className='limitedEdition__desc'>
         <h4 className='limitedEdition__tittle'>Limited edition</h4>
         <strong className='limitedEdition__topic'>Hurry up! 40% OFF</strong>
-        <p className='limitedEdition__prompt'>Hurry up!!! Winter is coming!</p>
+        <p className='limitedEdition__prompt'>
+          Make haste!!! Winter is coming!
+        </p>
         <div className='limitedEdition__timer'>
           <CountDownTimer />
         </div>

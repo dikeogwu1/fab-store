@@ -8,6 +8,13 @@
   font-family: $inter-font;
   color: $brand-color;
   position: relative;
+  z-index: 1;
+  visibility: visible;
+  &--hide {
+    position: absolute;
+    z-index: -1;
+    visibility: hidden;
+  }
 
   &__text {
     font-size: 0.875rem;

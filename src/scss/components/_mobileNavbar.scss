@@ -9,6 +9,11 @@
       rgba(0, 0, 0, 0.32) 100%
     ),
     lightgray 0px 0px / 100% 592.885% no-repeat;
+  transition: $transition;
+  transform: translateX(-100%);
+  &--open {
+    transform: translateX(0);
+  }
 
   &__wrapper {
     width: 95%;
@@ -132,7 +137,7 @@
     letter-spacing: -0.025rem;
   }
 
-  &__authBtns {
+  &__authBtn {
     @include flexJustifyCenterAlignCenter;
     gap: 1.5rem;
     flex-direction: column;
@@ -140,8 +145,14 @@
     width: 100%;
   }
 
-  &__authBtn {
+  &__link {
+    align-self: stretch;
+    width: 100%;
+  }
+
+  &__logger {
     @include flexJustifyCenterAlignCenter;
+    width: 100%;
     padding: 0.625rem 1.625rem;
     gap: 0.25rem;
     align-self: stretch;

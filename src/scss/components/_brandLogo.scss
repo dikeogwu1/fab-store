@@ -1,0 +1,12 @@
+.brand {
+  font-family: $popins-font;
+  color: $neutral-07100;
+
+  &__name {
+    color: $green;
+  }
+
+  &__label {
+    text-shadow: 0px 0px 2px $green;
+  }
+}

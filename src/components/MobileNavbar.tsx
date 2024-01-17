@@ -2,20 +2,56 @@ import { useEffect, useRef } from "react";
 import BrandLogo from "./BrandLogo";
 import Close from "../assets/Close";
 import Search from "../assets/Search";
-import { Link } from "react-router-dom";
 import ChevronDown from "../assets/ChevronDown";
 import CartItemsCounter from "./CartItemsCounter";
 import WishListCounter from "./WishListCounter";
 import Instagram from "../assets/Instagram";
 import Facebook from "../assets/Facebook";
 import Youtube from "../assets/Youtube";
+import { Link } from "react-router-dom";
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import { storeType } from "../types/reduxStore";
+import { closeMobileNav } from "../features/modal";
 
 const MobileNavbar = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const { isLoggedIn } = useSelector((store: storeType) => store.user);
+  const { isMobileNav } = useSelector((store: storeType) => store.modal);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dialogRef.current?.showModal();
-  }, []);
+    if (isMobileNav) {
+      dialogRef.current?.showModal();
+      setTimeout(() => {
+        dialogRef.current?.classList.add("mobileNav--open");
+      }, 60);
+    }
+
+    const checkScreenSize = (): void => {
+      if (window.innerWidth > 768) {
+        dialogRef.current?.classList.remove("mobileNav--open");
+        setTimeout(() => {
+          dialogRef.current?.close();
+          dispatch(closeMobileNav());
+        }, 200);
+      }
+    };
+
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, [isMobileNav]);
+
+  const closeMobileNavbar = (): void => {
+    dialogRef.current?.classList.remove("mobileNav--open");
+    setTimeout(() => {
+      dialogRef.current?.close();
+      dispatch(closeMobileNav());
+    }, 200);
+  };
 
   return (
     <dialog ref={dialogRef} className='mobileNav'>
@@ -23,7 +59,7 @@ const MobileNavbar = () => {
         <div className='mobileNav__head'>
           <header className='mobileNav__header'>
             <BrandLogo />
-            <button className='mobileNav__close'>
+            <button className='mobileNav__close' onClick={closeMobileNavbar}>
               <Close />
             </button>
           </header>
@@ -70,10 +106,23 @@ const MobileNavbar = () => {
             <strong className='mobileNav__strong'>WishList</strong>
             <WishListCounter />
           </div>
-          <div className='mobileNav__authBtns'>
-            <button className='mobileNav__authBtn'>Sign in</button>
-            <button className='mobileNav__authBtn'>Sign up</button>
-          </div>
+          {/* check if user is logged in */}
+          {isLoggedIn ? (
+            <div className='mobileNav__authBtn'>
+              <Link to='/profile' className='link'>
+                <button className='mobileNav__logger'>Dashboard</button>
+              </Link>
+            </div>
+          ) : (
+            <div className='mobileNav__authBtn'>
+              <Link to='/login' className='link'>
+                <button className='mobileNav__logger'>Sign in</button>
+              </Link>
+              <Link to='register' className='link'>
+                <button className='mobileNav__logger'>Register</button>
+              </Link>
+            </div>
+          )}
           <div className='mobileNav__socials'>
             <button className='mobileNav__social'>
               <Instagram />

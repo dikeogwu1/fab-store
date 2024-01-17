@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 
 const BrandLogo = () => {
   return (
-    <Link to='/'>
-      <strong>FAB'store</strong>
+    <Link to='/' className='brand'>
+      <strong className='brand__logo'>
+        <span className='brand__name'>FAB'</span>
+        <span className='brand__label'>store</span>
+      </strong>
     </Link>
   );
 };

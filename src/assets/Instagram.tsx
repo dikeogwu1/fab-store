@@ -1,4 +1,4 @@
-const Instagram = () => {
+const Instagram = ({ color }: { color?: boolean }) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -13,11 +13,17 @@ const Instagram = () => {
         width='20'
         height='20'
         rx='4'
-        stroke='#141718'
+        stroke={color ? "#fefefe" : "#141718"}
         strokeWidth='1.5'
       />
-      <circle cx='18' cy='6' r='1' fill='#141718' />
-      <circle cx='12' cy='12' r='5' stroke='#141718' strokeWidth='1.5' />
+      <circle cx='18' cy='6' r='1' fill={color ? "#fefefe" : "#141718"} />
+      <circle
+        cx='12'
+        cy='12'
+        r='5'
+        stroke={color ? "#fefefe" : "#141718"}
+        strokeWidth='1.5'
+      />
     </svg>
   );
 };

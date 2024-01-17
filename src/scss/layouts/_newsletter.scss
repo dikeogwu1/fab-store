@@ -34,7 +34,11 @@
 
   &__inputBox {
     @include flexJustifyCenterAlignCenter;
-    gap: 0.5rem;
+    width: 90%;
+  }
+
+  &__label {
+    display: none;
   }
 
   &__input {
@@ -43,7 +47,6 @@
     color: $neutral-01100;
     font-size: 1rem;
     display: block;
-
     &::placeholder {
       color: $neutral-01100;
       font-family: $inter-font;
@@ -68,6 +71,15 @@
   }
 }
 
+@media screen and (min-width: 300px) {
+  .newsletter {
+    &__label {
+      display: block;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
   .newsletter {
     &__tittle {
@@ -85,6 +97,10 @@
     &__form {
       @include flexJustifyBetweenAlignCenter;
       width: 60%;
+    }
+
+    &__input {
+      width: 90%;
     }
   }
 }

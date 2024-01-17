@@ -1,5 +1,5 @@
-import { instagram } from "../../types/random";
-export const instagramImg: instagram = [
+import { images } from "../../types/random";
+export const instagramImg: images = [
   {
     id: 1,
     img: "https://res.cloudinary.com/dikeogwu1/image/upload/v1705082758/Fabstore%20e-commerce/Paste_image18_vp8gbx.png",

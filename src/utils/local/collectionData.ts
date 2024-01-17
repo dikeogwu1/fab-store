@@ -1,5 +1,5 @@
-import { collection } from "../../types/random";
-export const shopCollections: collection = [
+import { namesAndImages } from "../../types/random";
+export const shopCollections: namesAndImages = [
   {
     id: 1,
     name: "Men’s Set",

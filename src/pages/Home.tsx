@@ -10,6 +10,7 @@ import LatestArticles from "../layouts/LatestArticles";
 import NewsLetter from "../layouts/NewsLetter";
 import NewsFeed from "../layouts/NewsFeed";
 import InstagramImg from "../layouts/InstagramImg";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -26,6 +27,7 @@ const Home = () => {
       <NewsLetter />
       <NewsFeed />
       <InstagramImg />
+      <Footer />
     </>
   );
 };

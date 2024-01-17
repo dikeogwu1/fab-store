@@ -28,29 +28,15 @@ export type featured = {
   img: string;
 }[];
 
-// INSTAGRAM
-export type instagram = {
+// INSTAGRAM / PAYMENT CARDS
+export type images = {
   id: number;
   img: string;
 }[];
 
-// CATEGORIES
-export type categories = {
+// CATEGORIES / COLLECTION / LATEST ARTICLES
+export type namesAndImages = {
   id: number;
   name: string;
   img: string;
-}[];
-
-// COLLECTION
-export type collection = {
-  id: number;
-  name: string;
-  img: string;
-}[];
-
-// LATEST ARTICLES
-export type articles = {
-  id: number;
-  img: string;
-  name: string;
 }[];

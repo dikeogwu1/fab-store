@@ -1,6 +1,6 @@
-import { articles } from "../../types/random";
+import { namesAndImages } from "../../types/random";
 
-export const latestArticles: articles = [
+export const latestArticles: namesAndImages = [
   {
     id: 1,
     img: "https://res.cloudinary.com/dikeogwu1/image/upload/v1705082868/Fabstore%20e-commerce/img_3_hubitt.png",

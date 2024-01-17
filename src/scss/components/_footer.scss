@@ -1,0 +1,200 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 4rem 1rem 1.5rem 1rem;
+  background: $neutral-07100;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $neutral-04100;
+  }
+
+  &__desc {
+    color: $neutral-01100;
+    font-family: $inter-font;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+  }
+
+  &__socials {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  &__list {
+    padding: 2rem 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    border-bottom: 1px solid $neutral-04100;
+  }
+
+  &__topic {
+    color: $neutral-01100;
+    font-family: $popins-font;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+  }
+
+  &__item {
+    color: $primary-white;
+    font-family: $inter-font;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+    width: 100%;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+      color: $green;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__cardImg {
+    width: 3rem;
+    height: 2rem;
+  }
+
+  &__writeup {
+    @include flexJustifyCenterAlignCenter;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__policy {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
+
+  &__terms {
+    color: $neutral-01100;
+    font-family: $popins-font;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+      color: $green;
+    }
+  }
+
+  &__copyright {
+    color: $neutral-03100;
+    font-family: $popins-font;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    width: 100%;
+    align-items: stretch;
+
+    &__navBox {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    &__header {
+      width: 100%;
+      border-bottom: none;
+    }
+
+    &__nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__desc {
+      font-family: $popins-font;
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.75rem;
+    }
+
+    &__list {
+      padding: 0;
+      border-bottom: none;
+    }
+
+    &__bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 4rem;
+      border-top: 1px solid $neutral-04100;
+    }
+
+    &__cards {
+      order: 2;
+    }
+
+    &__writeup {
+      flex-direction: row;
+      gap: 1rem;
+    }
+
+    &__policy {
+      @include flexJustifyCenterAlignCenter;
+      gap: 1rem;
+      order: 2;
+      padding-left: 1rem;
+      border-left: 1px solid $neutral-04100;
+    }
+
+    &__terms {
+      font-weight: 400;
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .footer {
+    padding: 4rem 10rem 1.5rem 10rem;
+
+    &__navBox {
+      flex-direction: row;
+    }
+
+    &__header {
+      width: 50%;
+      padding-bottom: 0;
+    }
+
+    &__nav {
+      width: 50%;
+    }
+  }
+}

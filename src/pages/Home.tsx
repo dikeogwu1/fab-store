@@ -12,6 +12,7 @@ import NewsFeed from "../layouts/NewsFeed";
 import InstagramImg from "../layouts/InstagramImg";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
+import MiniCart from "../layouts/MiniCart";
 
 const Home = () => {
   useEffect(() => {
@@ -20,6 +21,7 @@ const Home = () => {
 
   return (
     <>
+      <MiniCart />
       <Navbar1 />
       <Navbar2 />
       <MobileNavbar />

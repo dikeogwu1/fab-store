@@ -11,7 +11,7 @@ import Youtube from "../assets/Youtube";
 import { Link } from "react-router-dom";
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { storeType } from "../types/reduxStore";
+import { storeType } from "../store";
 import { closeMobileNav } from "../features/modal";
 
 const MobileNavbar = () => {

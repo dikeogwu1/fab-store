@@ -7,7 +7,7 @@ import CartItemsCounter from "./CartItemsCounter";
 import { Link } from "react-router-dom";
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { storeType } from "../types/reduxStore";
+import { storeType } from "../store";
 import { openMobileNav } from "../features/modal";
 
 const Navbar2 = () => {
@@ -48,18 +48,20 @@ const Navbar2 = () => {
       </ul>
       <div className='navbar2__tools'>
         <div className='navbar2__tool'>
-          <Search />
+          <button className='navbar2__search'>
+            <Search />
+          </button>
           {isLoggedIn ? (
             <Link to='/profile'>
               <UserCircle />
             </Link>
           ) : (
             <div className='navbar2__authBtn'>
-              <Link to='/login'>
-                <button className='navbar2__logger'>Sign in</button>
+              <Link to='/login' className='navbar2__logger'>
+                Sign in
               </Link>
-              <Link to='/register'>
-                <button className='navbar2__logger'>Register</button>
+              <Link to='/register' className='navbar2__logger'>
+                Register
               </Link>
             </div>
           )}

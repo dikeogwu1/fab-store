@@ -5,7 +5,7 @@ const initialState = {
   isAlert: false,
   isUserModal: false,
   isMobileNav: false,
-  emailModal: false,
+  miniCartModal: false,
 };
 
 const modalSlice = createSlice({
@@ -40,11 +40,11 @@ const modalSlice = createSlice({
     closeUserModal: (state) => {
       state.isUserModal = false;
     },
-    openEmailModal: (state) => {
-      state.emailModal = true;
+    openMiniCartModal: (state) => {
+      state.miniCartModal = true;
     },
-    closeEmailModal: (state) => {
-      state.emailModal = false;
+    closeMiniCartModal: (state) => {
+      state.miniCartModal = false;
     },
   },
 });
@@ -55,8 +55,8 @@ export const {
   hideModal,
   toggleUserModal,
   closeUserModal,
-  openEmailModal,
-  closeEmailModal,
+  openMiniCartModal,
+  closeMiniCartModal,
   openMobileNav,
   closeMobileNav,
 } = modalSlice.actions;

@@ -61,17 +61,29 @@ const CountDownTimer = () => {
     <div className='countDown'>
       <strong className='countDown__expiration'>Offer expires in:</strong>
       <div className='countDown__wrapper'>
-        <div className='countDown__timer'>
-          <h3 className='countDown__time'>{timer.days}</h3>
+        <div className='countDown__timerBox'>
+          <div className='countDown__timer'>
+            <h3 className='countDown__time'>{timer.days}</h3>
+          </div>
+          <strong className='countDown__span'>Days</strong>
         </div>
-        <div className='countDown__timer'>
-          <h3 className='countDown__time'>{timer.hours}</h3>
+        <div className='countDown__timerBox'>
+          <div className='countDown__timer'>
+            <h3 className='countDown__time'>{timer.hours}</h3>
+          </div>
+          <strong className='countDown__span'>hours</strong>
         </div>
-        <div className='countDown__timer'>
-          <h3 className='countDown__time'>{timer.minutes}</h3>
+        <div className='countDown__timerBox'>
+          <div className='countDown__timer'>
+            <h3 className='countDown__time'>{timer.minutes}</h3>
+          </div>
+          <strong className='countDown__span'>minutes</strong>
         </div>
-        <div className='countDown__timer'>
-          <h3 className='countDown__time'>{timer.seconds}</h3>
+        <div className='countDown__timerBox'>
+          <div className='countDown__timer'>
+            <h3 className='countDown__time'>{timer.seconds}</h3>
+          </div>
+          <strong className='countDown__span'>seconds</strong>
         </div>
       </div>
     </div>

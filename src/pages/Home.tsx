@@ -11,8 +11,13 @@ import NewsLetter from "../layouts/NewsLetter";
 import NewsFeed from "../layouts/NewsFeed";
 import InstagramImg from "../layouts/InstagramImg";
 import Footer from "../components/Footer";
+import { useEffect } from "react";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
   return (
     <>
       <Navbar1 />

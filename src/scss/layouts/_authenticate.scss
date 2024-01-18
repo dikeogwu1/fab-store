@@ -1,0 +1,209 @@
+.auth {
+  width: 100%;
+  @include flexJustifyCenterAlignCenter;
+  flex-direction: column;
+
+  &__poster {
+    height: 26.875rem;
+    width: 100%;
+    background: lightgray;
+    background-blend-mode: multiply, normal;
+    @include flexJustifyCenterAlignCenter;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  &__logo {
+    margin-top: 2rem;
+  }
+
+  &__imgBox {
+    height: 23rem;
+    width: 12rem;
+  }
+
+  &__feed {
+    background: $primary-white;
+    padding: 2.5rem 1rem;
+    align-self: stretch;
+  }
+
+  &__tittle {
+    color: $neutral-07100;
+    font-family: $popins-font;
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 2.75rem;
+    letter-spacing: -0.025rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__desc {
+    color: $neutral-04100;
+    font-family: $inter-font;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+  }
+
+  &__link {
+    color: $green;
+    font-family: $inter-font;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.625rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    align-self: stretch;
+    margin-top: 2rem;
+  }
+
+  &__inputBox {
+    display: flex;
+    padding-bottom: 0.5rem;
+    align-items: center;
+    gap: 1rem;
+    align-self: stretch;
+    border-bottom: 1px solid $neutral-03100;
+  }
+
+  &__input {
+    color: $neutral-04100;
+    font-family: $inter-font;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+    border: none;
+    width: 100%;
+    &::placeholder {
+      color: $neutral-04100;
+      font-family: $inter-font;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.625rem;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__terms {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 0.75rem;
+    &--forgotPass {
+      justify-content: space-between;
+    }
+  }
+
+  &__remember {
+    @include flexJustifyCenterAlignCenter;
+    gap: 1rem;
+  }
+
+  &__checkbox {
+    fill: $neutrals-8;
+    stroke-width: 1.5px;
+    stroke: $neutral-04100;
+    width: 1.5rem;
+    height: 1.5rem;
+    &:checked {
+      border: 1px solid $green;
+      color: $green;
+    }
+  }
+
+  &__prompt {
+    color: $neutral-04100;
+    font-family: $inter-font;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+  }
+
+  &__conditions {
+    color: $neutral-07100;
+    font-family: $inter-font;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+  }
+
+  &__btn {
+    display: flex;
+    width: 100%;
+    padding: 0.625rem 2.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    background: $neutral-07100;
+    color: $primary-white;
+    text-align: center;
+    font-family: $inter-font;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+    letter-spacing: -0.025rem;
+    &:hover {
+      color: $green;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .auth {
+    &__feed {
+      padding-left: 5.5rem;
+      align-self: auto;
+    }
+
+    &__form {
+      max-width: 25rem;
+    }
+
+    &__prompt {
+      font-size: 1rem;
+      line-height: 1.625rem;
+    }
+
+    &__conditions {
+      font-size: 1rem;
+      line-height: 1.625rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .auth {
+    height: 100vh;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__poster {
+      width: 50%;
+      height: 100%;
+      justify-content: flex-start;
+    }
+
+    &__imgBox {
+      height: 25rem;
+      width: 14rem;
+    }
+
+    &__feed {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: stretch;
+    }
+  }
+}

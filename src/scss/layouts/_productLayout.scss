@@ -1,0 +1,390 @@
+.product {
+  padding: 1rem 1rem;
+  margin-top: 1rem;
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: $black-600;
+    font-family: $inter-font;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    &--active {
+      color: $black-900;
+      font-family: $inter-font;
+    }
+  }
+
+  &__poster {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__imgWrapper {
+    @include flexJustifyCenterAlignCenter;
+    width: 100%;
+    max-width: 34.25rem;
+    height: 25.875rem;
+    position: relative;
+    margin-top: 1rem;
+    overflow: hidden;
+  }
+
+  &__imgBox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: $transition;
+  }
+
+  &__next {
+    transform: translateX(100%);
+    visibility: hidden;
+    z-index: -1;
+  }
+
+  &__current {
+    transform: translateX(0);
+    visibility: visible;
+    z-index: 1;
+  }
+
+  &__prev {
+    transform: translateX(-100%);
+    visibility: hidden;
+    z-index: -1;
+  }
+
+  &__arrowLeft,
+  &__arrowRight {
+    @include flexJustifyCenterAlignCenter;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: $primary-white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.04);
+    position: absolute;
+    z-index: 2;
+  }
+
+  &__arrowLeft {
+    left: 0;
+    margin-left: 1.5rem;
+  }
+
+  &__arrowRight {
+    right: 0;
+    margin-right: 1.5rem;
+  }
+
+  &__bottomImages {
+    display: none;
+    gap: 1.5rem;
+  }
+
+  &__image {
+    width: 10.4375rem;
+    height: 10.4375rem;
+  }
+
+  // PRODUCT DESCRIPTIONS
+  &__descBox {
+    margin-top: 2rem;
+  }
+
+  &__descWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+  }
+
+  &__descHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  &__reviewCount {
+    color: $neutral-07100;
+    font-family: $inter-font;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+  }
+
+  &__name {
+    color: $neutral-07100;
+    font-family: $popins-font;
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 2.75rem;
+    letter-spacing: -0.025rem;
+  }
+
+  &__desc {
+    color: $neutral-04100;
+    font-family: $inter-font;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+  }
+
+  &__priceBox {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  &__price {
+    color: $black-900;
+    font-family: $popins-font;
+    font-size: 1.75rem;
+    font-weight: 500;
+    line-height: 2.125rem;
+    letter-spacing: -0.0375rem;
+  }
+
+  &__discount {
+    color: $neutral-04100;
+    font-family: $popins-font;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+  }
+
+  &__attributes {
+    display: flex;
+    padding: 1.5rem 0rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  &__sizeBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  &__sizeText,
+  &__colorText {
+    color: $neutral-04100;
+    font-family: $inter-font;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.625rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  &__sizes {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__size {
+    color: $brand-color;
+    font-family: $inter-font;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 2rem;
+    padding: 0.25rem;
+    &:hover {
+      background: $green;
+    }
+  }
+
+  &__colorBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  &__colorName {
+    color: $brand-color;
+    font-family: $inter-font;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 2rem;
+  }
+
+  &__colors {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__color {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: #000;
+  }
+
+  // ACTION BUTTONS
+  &__actions {
+    display: flex;
+    padding: 1.5rem 0rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  &__btnBox {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__countBox {
+    @include flexJustifyCenterAlignCenter;
+    gap: 0.625rem;
+    width: 5rem;
+    height: 2rem;
+    padding: 0.75rem 0.5rem;
+    border-radius: 0.25rem;
+    background: $neutral-02100;
+  }
+
+  &__increament,
+  &__decreament {
+    background: transparent;
+    &:hover {
+      background: $green;
+    }
+  }
+
+  &__wishlist {
+    @include flexJustifyCenterAlignCenter;
+    padding: 0.25rem 2.5rem;
+    gap: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid $neutral-07100;
+  }
+
+  &__addToCart {
+    @include flexJustifyCenterAlignCenter;
+    width: 100%;
+    max-width: 19.4375rem;
+    padding: 0.25rem 2.5rem;
+    gap: 0.5rem;
+    border-radius: 0.25rem;
+    background: $neutral-07100;
+    color: $primary-white;
+    text-align: center;
+    font-family: $inter-font;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+  }
+
+  // CATEGORY INFO
+  &__categoryBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 19.4375rem;
+    padding: 1.5rem 0rem;
+    gap: 0.5rem;
+    border-top: 1px solid $neutral-03100;
+  }
+
+  &__categoryDesc {
+    display: flex;
+    align-items: flex-start;
+    gap: 6.125rem;
+    &--category {
+      gap: 3.625rem;
+    }
+  }
+
+  &__categoryInfo,
+  &__categoryValue {
+    color: $neutral-04100;
+    font-family: $inter-font;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+  }
+
+  &__categoryValue {
+    color: $neutral-07100;
+  }
+
+  &__remark {
+    margin-top: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 300px) {
+  .product {
+    &__wishlist {
+      width: 13.9375rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .product {
+    &__link {
+      font-size: 0.875rem;
+      line-height: 1.5rem;
+    }
+
+    &__imgWrapper {
+      width: 34.25rem;
+      height: 45.5625rem;
+    }
+
+    &__addToCart {
+      width: 31.75rem;
+      padding: 0.625rem 2.5rem;
+      border-radius: 0.5rem;
+      font-size: 1.125rem;
+      line-height: 2rem;
+      letter-spacing: -0.025rem;
+    }
+
+    &__categoryBox {
+      width: 31.75rem;
+    }
+
+    &__remark {
+      margin-top: 2.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .product {
+    &__box {
+      display: flex;
+      gap: 3.9375rem;
+    }
+
+    &__bottomImages {
+      display: flex;
+      gap: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .product {
+    padding: 1rem 10rem 8rem 10rem;
+  }
+}

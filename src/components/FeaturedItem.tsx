@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Heart from "../assets/Heart";
 import StarFull from "../assets/StarFull";
 import { featuredItemData } from "../utils/local/featuredItemData";
@@ -8,7 +9,7 @@ const FeaturedItem = () => {
       {featuredItemData.map((item) => {
         const { id, name, img, price, discount } = item;
         return (
-          <div className='featuredItem__wrapper' key={id}>
+          <Link to={`product/${id}`} className='featuredItem__wrapper' key={id}>
             <div className='featuredItem__imgBox'>
               {/* featured image */}
               <img src={img} alt={name} className='featuredItem__img' />
@@ -45,7 +46,7 @@ const FeaturedItem = () => {
                 </del>
               </div>
             </div>
-          </div>
+          </Link>
         );
       })}
     </section>

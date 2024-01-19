@@ -8,7 +8,7 @@ const times = {
   seconds: "0",
 };
 
-const CountDownTimer = () => {
+const CountDownTimer = ({ color }: { color?: boolean }) => {
   const [timer, setTimer] = useState<timer>(times);
 
   // get dates
@@ -59,31 +59,69 @@ const CountDownTimer = () => {
 
   return (
     <div className='countDown'>
-      <strong className='countDown__expiration'>Offer expires in:</strong>
+      <strong
+        className={`countDown__expiration ${
+          color && "countDown__expiration--dark"
+        }`}
+      >
+        Offer expires in:
+      </strong>
       <div className='countDown__wrapper'>
         <div className='countDown__timerBox'>
-          <div className='countDown__timer'>
+          <div
+            className={`countDown__timer ${
+              color && "countDown__timer--greyBG"
+            }`}
+          >
             <h3 className='countDown__time'>{timer.days}</h3>
           </div>
-          <strong className='countDown__span'>Days</strong>
+          <strong
+            className={`countDown__span ${color && "countDown__span--dark"}`}
+          >
+            Days
+          </strong>
         </div>
         <div className='countDown__timerBox'>
-          <div className='countDown__timer'>
+          <div
+            className={`countDown__timer ${
+              color && "countDown__timer--greyBG"
+            }`}
+          >
             <h3 className='countDown__time'>{timer.hours}</h3>
           </div>
-          <strong className='countDown__span'>hours</strong>
+          <strong
+            className={`countDown__span ${color && "countDown__span--dark"}`}
+          >
+            hours
+          </strong>
         </div>
         <div className='countDown__timerBox'>
-          <div className='countDown__timer'>
+          <div
+            className={`countDown__timer ${
+              color && "countDown__timer--greyBG"
+            }`}
+          >
             <h3 className='countDown__time'>{timer.minutes}</h3>
           </div>
-          <strong className='countDown__span'>minutes</strong>
+          <strong
+            className={`countDown__span ${color && "countDown__span--dark"}`}
+          >
+            minutes
+          </strong>
         </div>
         <div className='countDown__timerBox'>
-          <div className='countDown__timer'>
+          <div
+            className={`countDown__timer ${
+              color && "countDown__timer--greyBG"
+            }`}
+          >
             <h3 className='countDown__time'>{timer.seconds}</h3>
           </div>
-          <strong className='countDown__span'>seconds</strong>
+          <strong
+            className={`countDown__span ${color && "countDown__span--dark"}`}
+          >
+            seconds
+          </strong>
         </div>
       </div>
     </div>

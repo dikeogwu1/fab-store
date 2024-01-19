@@ -7,9 +7,9 @@ const Login = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Authenticate isRegister={false} />
-    </div>
+    </>
   );
 };
 

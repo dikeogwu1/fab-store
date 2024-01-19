@@ -7,9 +7,9 @@ const Register = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Authenticate isRegister={true} />
-    </div>
+    </>
   );
 };
 

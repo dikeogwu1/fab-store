@@ -1,3 +1,5 @@
+import React from "react";
+
 // UNION
 export type union = string | number;
 
@@ -39,4 +41,11 @@ export type namesAndImages = {
   id: number;
   name: string;
   img: string;
+}[];
+
+// PRODUCT REMARK
+export type RemarkType = {
+  id: number;
+  name: string;
+  component: React.ReactNode;
 }[];

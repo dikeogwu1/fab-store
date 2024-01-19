@@ -5,9 +5,13 @@ import {
   RouterProvider,
   Outlet,
 } from "react-router-dom";
+// Routes
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Product from "./pages/Product";
+import MiniCart from "./layouts/MiniCart";
+import MobileNavbar from "./components/MobileNavbar";
 // import Auth from "./RouteProtection";
 
 function App() {
@@ -18,6 +22,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/product/:id' element={<Product />} />
       </Route>
     )
   );
@@ -32,6 +37,8 @@ function App() {
 function Root() {
   return (
     <>
+      <MobileNavbar />
+      <MiniCart />
       <Outlet />
     </>
   );

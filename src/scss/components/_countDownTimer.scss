@@ -5,6 +5,9 @@
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.625rem;
+    &--dark {
+      color: $neutral-05100;
+    }
   }
 
   &__wrapper {
@@ -26,6 +29,9 @@
     padding: 0.6875rem 0.5625rem;
     background: $neutral-01100;
     margin-top: 0.75rem;
+    &--greyBG {
+      background: $neutral-02100;
+    }
   }
 
   &__time {
@@ -46,5 +52,8 @@
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.25rem;
+    &--dark {
+      color: $neutral-04100;
+    }
   }
 }

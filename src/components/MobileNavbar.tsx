@@ -23,18 +23,21 @@ const MobileNavbar = () => {
   useEffect(() => {
     if (isMobileNav) {
       dialogRef.current?.showModal();
+      document.body.style.overflow = "hidden";
       setTimeout(() => {
         dialogRef.current?.classList.add("mobileNav--open");
       }, 60);
+    } else {
+      dialogRef.current?.classList.remove("mobileNav--open");
+      setTimeout(() => {
+        dialogRef.current?.close();
+        document.body.style.overflow = "auto";
+      }, 200);
     }
 
     const checkScreenSize = (): void => {
       if (window.innerWidth > 768) {
-        dialogRef.current?.classList.remove("mobileNav--open");
-        setTimeout(() => {
-          dialogRef.current?.close();
-          dispatch(closeMobileNav());
-        }, 200);
+        dispatch(closeMobileNav());
       }
     };
 
@@ -46,15 +49,18 @@ const MobileNavbar = () => {
   }, [isMobileNav]);
 
   const closeMobileNavbar = (): void => {
-    dialogRef.current?.classList.remove("mobileNav--open");
-    setTimeout(() => {
-      dialogRef.current?.close();
+    dispatch(closeMobileNav());
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>): void => {
+    const targetElement = e.target as HTMLElement;
+    if (targetElement.classList[0] === "mobileNav") {
       dispatch(closeMobileNav());
-    }, 200);
+    }
   };
 
   return (
-    <dialog ref={dialogRef} className='mobileNav'>
+    <dialog ref={dialogRef} className='mobileNav' onClick={handleClick}>
       <div className='mobileNav__wrapper'>
         <div className='mobileNav__head'>
           <header className='mobileNav__header'>

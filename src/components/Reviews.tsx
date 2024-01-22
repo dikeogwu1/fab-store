@@ -1,8 +1,6 @@
 import React, { useRef, useState } from "react";
 import ArrowRight from "../assets/ArrowRight";
 import ChevronDown from "../assets/ChevronDown";
-import StarFull from "../assets/StarFull";
-import StarPlan from "../assets/StarPlan";
 import Review from "./Review";
 import ChevronUp from "../assets/ChevronUp";
 import AllStars from "./AllStars";

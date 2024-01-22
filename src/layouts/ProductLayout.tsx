@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import ChevronRight from "../assets/ChevronRight";
 import ArrowLeft from "../assets/ArrowLeft";
 import ArrowRight from "../assets/ArrowRight";
-import { useEffect, useState } from "react";
-import StarFull from "../assets/StarFull";
+import { useEffect, useRef, useState } from "react";
 import CountDownTimer from "../components/CountDownTimer";
 import Pluse from "../assets/Pluse";
 import Minus from "../assets/Minus";
@@ -11,20 +10,27 @@ import Heart from "../assets/Heart";
 import UserRemark from "./UserRemark";
 import DiscountTag from "../components/DiscountTag";
 import AllStars from "../components/AllStars";
-
-const images = [
-  {
-    id: 1,
-    img: "https://res.cloudinary.com/dikeogwu1/image/upload/v1705269669/Fabstore%20e-commerce/Short4_lhgvds.jpg",
-  },
-  {
-    id: 2,
-    img: "https://res.cloudinary.com/dikeogwu1/image/upload/v1705269669/Fabstore%20e-commerce/Short4_lhgvds.jpg",
-  },
-];
+import { productData } from "../utils/local/productData";
 
 const ProductLayout = () => {
   const [value, setValue] = useState<number>(0);
+  const [selectedColor, setSelectedColor] = useState<number>(2);
+  const colorRef = useRef(null);
+
+  // product full data
+  const {
+    id,
+    name,
+    description,
+    price,
+    offer,
+    discountPrice,
+    sizes,
+    colors,
+    category,
+    images,
+    reviews,
+  } = productData;
 
   useEffect(() => {
     if (value > images.length - 1) {
@@ -34,6 +40,18 @@ const ProductLayout = () => {
       setValue(images.length - 1);
     }
   }, [value]);
+
+  useEffect(() => {
+    const allBtn = document.querySelectorAll(".product__color");
+    allBtn.forEach((btn) => {
+      btn.classList.remove("product__color--active");
+      const singleButton = btn as HTMLElement;
+
+      if (parseInt(singleButton.dataset.id!) === selectedColor) {
+        btn.classList.add("product__color--active");
+      }
+    });
+  }, [selectedColor]);
 
   useEffect(() => {
     let duration = setInterval(() => {
@@ -66,7 +84,7 @@ const ProductLayout = () => {
           {/* poster */}
           <div className='product__poster'>
             <div className='product__imgWrapper'>
-              <DiscountTag />
+              {offer && <DiscountTag />}
               {images.map((image, index) => {
                 const { id, img } = image;
                 let coordinate = "product__next";
@@ -117,28 +135,30 @@ const ProductLayout = () => {
               <div className='product__stars'>
                 <AllStars rating={5} />
               </div>
-              <div className='product__reviewCount'>11 Reviews</div>
+              <div className='product__reviewCount'>{reviews} Reviews</div>
             </header>
-            <h4 className='product__name'>Men's short</h4>
-            <p className='product__desc'>
-              Buy one or buy a few and make every space where you sit more
-              convenient. Light and easy to move around with removable tray top,
-              handy for serving snacks.
-            </p>
+            <h4 className='product__name'>{name}</h4>
+            <p className='product__desc'>{description}</p>
             <div className='product__priceBox'>
-              <strong className='product__price'>$199.00</strong>
-              <del className='product__discount'>$199.00</del>
+              <strong className='product__price'>${price}</strong>
+              {offer && (
+                <del className='product__discount'>${discountPrice}</del>
+              )}
             </div>
           </div>
 
-          <CountDownTimer color={true} />
+          {offer && <CountDownTimer color={true} />}
           <div className='product__attributes'>
             <div className='product__sizeBox'>
               <h4 className='product__sizeText'>Size</h4>
               <div className='product__sizes'>
-                <button className='product__size'>M</button>
-                <button className='product__size'>XL</button>
-                <button className='product__size'>XXL</button>
+                {sizes.map((size) => {
+                  return (
+                    <button className='product__size' key={size.id}>
+                      {size.size}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -146,11 +166,29 @@ const ProductLayout = () => {
               <h4 className='product__colorText'>
                 Choose Color <ChevronRight />
               </h4>
-              <strong className='product__colorName'>Black</strong>
+              <strong className='product__colorName' ref={colorRef}>
+                Black
+              </strong>
               <div className='product__colors'>
-                <button className='product__color'></button>
-                <button className='product__color'></button>
-                <button className='product__color'></button>
+                {colors.map((color, i) => {
+                  return (
+                    <button
+                      className='product__color'
+                      key={color.id}
+                      data-id={i}
+                      data-name={color.name}
+                      style={{ background: `${color.hexColor}` }}
+                      onClick={(
+                        e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+                      ) => {
+                        setSelectedColor(i);
+                        e.currentTarget.classList.add("product__color--active");
+                        const colorName = colorRef.current! as HTMLElement;
+                        colorName.textContent = e.currentTarget.dataset.name!;
+                      }}
+                    ></button>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -180,7 +218,7 @@ const ProductLayout = () => {
             </div>
             <div className='product__categoryDesc product__categoryDesc--category'>
               <h4 className='product__categoryInfo'>CATEGORY</h4>
-              <strong className='product__categoryValue'>Men's short</strong>
+              <strong className='product__categoryValue'>{category}</strong>
             </div>
           </div>
         </section>

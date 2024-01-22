@@ -9,6 +9,8 @@ import Pluse from "../assets/Pluse";
 import Minus from "../assets/Minus";
 import Heart from "../assets/Heart";
 import UserRemark from "./UserRemark";
+import DiscountTag from "../components/DiscountTag";
+import AllStars from "../components/AllStars";
 
 const images = [
   {
@@ -61,8 +63,10 @@ const ProductLayout = () => {
       {/* PRODUCT INFO */}
       <div className='product__box'>
         <section className='product__item'>
+          {/* poster */}
           <div className='product__poster'>
             <div className='product__imgWrapper'>
+              <DiscountTag />
               {images.map((image, index) => {
                 const { id, img } = image;
                 let coordinate = "product__next";
@@ -111,11 +115,7 @@ const ProductLayout = () => {
           <div className='product__descWrapper'>
             <header className='product__descHeader'>
               <div className='product__stars'>
-                <StarFull />
-                <StarFull />
-                <StarFull />
-                <StarFull />
-                <StarFull />
+                <AllStars rating={5} />
               </div>
               <div className='product__reviewCount'>11 Reviews</div>
             </header>

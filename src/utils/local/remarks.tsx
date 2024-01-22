@@ -1,4 +1,4 @@
-import { RemarkType } from "../../types/random";
+import { RemarkType } from "../../types/remarks";
 import AdditionalInfo from "../../components/AdditionInfo";
 import QuestionOnProduct from "../../components/QuestionOnProduct";
 import Reviews from "../../components/Reviews";
@@ -18,5 +18,20 @@ export const userRemark: RemarkType = [
     id: 3,
     name: "Reviews",
     component: <Reviews />,
+  },
+];
+
+export const btns = [
+  {
+    id: 1,
+    value: "Additional Info",
+  },
+  {
+    id: 2,
+    value: "Questions",
+  },
+  {
+    id: 3,
+    value: "Reviews",
   },
 ];

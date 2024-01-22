@@ -1,0 +1,85 @@
+.remark {
+  &__headers {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 70rem;
+    border-bottom: 1px solid $neutral-03100;
+  }
+
+  // show sm and hide lg
+  &__headersLG {
+    display: none;
+  }
+
+  &__btn {
+    @include flexJustifyBetweenAlignCenter;
+    width: 100%;
+    height: 2.5rem;
+    padding-bottom: 0.5rem;
+    gap: 0.625rem;
+    border-bottom: 1px solid $neutral-04100;
+    background: transparent;
+    &--active {
+      border-bottom: 1px solid $neutral-07100;
+      & .remark__tittle {
+        color: $neutral-07100;
+      }
+    }
+  }
+
+  &__tittle {
+    color: $black-500;
+    font-family: $inter-font;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 2rem;
+    letter-spacing: -0.025rem;
+    &--active {
+      color: $neutral-07100;
+    }
+  }
+
+  &__item {
+    margin-top: 2.5rem;
+    display: none;
+    &--active {
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .remark {
+    &__headers {
+      flex-direction: row;
+      gap: 5rem;
+    }
+
+    // show lg and hide sm
+    &__headersLG {
+      display: flex;
+    }
+    &__headersSM {
+      display: none;
+    }
+
+    &__btn {
+      border-bottom: none;
+      width: fit-content;
+      &--active {
+        border-bottom: 1px solid $neutral-07100;
+      }
+    }
+
+    &__btnIcon {
+      display: none;
+    }
+
+    &__item {
+      margin-top: 3rem;
+    }
+  }
+}

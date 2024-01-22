@@ -43,9 +43,21 @@ export type namesAndImages = {
   img: string;
 }[];
 
-// PRODUCT REMARK
-export type RemarkType = {
+// REVIEWS
+export type review = {
   id: number;
+  img: string;
   name: string;
-  component: React.ReactNode;
+  rating: number;
+  desc: string;
 }[];
+
+export type singleReview = {
+  review: {
+    id: number;
+    img: string;
+    name: string;
+    rating: number;
+    desc: string;
+  };
+};

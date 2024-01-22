@@ -15,6 +15,7 @@
 @import "./layouts/authenticate";
 @import "./layouts/miniCart";
 @import "./layouts/productLayout";
+@import "./layouts/userRemark";
 
 // components
 @import "./components/brandLogo";
@@ -31,3 +32,6 @@
 @import "./components/article";
 @import "./components/footer";
 @import "./components/miniCartItems";
+@import "./components/discountTag";
+@import "./components/reviews";
+@import "./components/review";

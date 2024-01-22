@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Heart from "../assets/Heart";
 import StarFull from "../assets/StarFull";
 import { featuredItemData } from "../utils/local/featuredItemData";
+import DiscountTag from "./DiscountTag";
 
 const FeaturedItem = () => {
   return (
@@ -14,16 +15,7 @@ const FeaturedItem = () => {
               {/* featured image */}
               <img src={img} alt={name} className='featuredItem__img' />
               {/* Hot tag */}
-              <div className='featuredItem__tags'>
-                <strong className='featuredItem__tag'>Hot</strong>
-                {discount ? (
-                  <strong className='featuredItem__tag  featuredItem__tag--discounted'>
-                    -50%
-                  </strong>
-                ) : (
-                  ""
-                )}
-              </div>
+              {discount ? <DiscountTag /> : ""}
               <button className='featuredItem__heart'>
                 <Heart />
               </button>

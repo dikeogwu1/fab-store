@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ChevronDown from "../assets/ChevronDown";
 import { btns, userRemark } from "../utils/local/remarks";
+import ChevronUp from "../assets/ChevronUp";
 
 const UserRemark = () => {
   const [activeTab, setActiveTab] = useState<number>(2);
@@ -61,7 +62,7 @@ const UserRemark = () => {
               >
                 <strong className='remark__tittle'>{name}</strong>
                 <span className='remark__btnIcon'>
-                  <ChevronDown />
+                  {i === activeTab ? <ChevronUp /> : <ChevronDown />}
                 </span>
               </button>
             </header>

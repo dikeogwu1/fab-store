@@ -118,7 +118,7 @@ const Reviews = () => {
         {/* reviews container */}
         <div className='reviews__container'>
           {reviewsData.map((review) => {
-            return <Review review={review} />;
+            return <Review review={review} key={review.id} />;
           })}
         </div>
       </div>

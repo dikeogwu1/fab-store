@@ -1,6 +1,6 @@
 import { RemarkType } from "../../types/remarks";
 import AdditionalInfo from "../../components/AdditionInfo";
-import QuestionOnProduct from "../../components/QuestionOnProduct";
+import QuestionProduct from "../../components/QuestionProduct";
 import Reviews from "../../components/Reviews";
 
 export const userRemark: RemarkType = [
@@ -12,7 +12,7 @@ export const userRemark: RemarkType = [
   {
     id: 2,
     name: "Questions",
-    component: <QuestionOnProduct />,
+    component: <QuestionProduct />,
   },
   {
     id: 3,

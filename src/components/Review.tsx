@@ -5,7 +5,7 @@ import { FaUserCircle } from "react-icons/fa";
 const Review = ({ review }: singleReview) => {
   const { id, img, rating, name, desc } = review;
   return (
-    <div key={id} className='review'>
+    <div className='review'>
       <header className='review__header'>
         {img ? (
           <div className='review__imgBox'>

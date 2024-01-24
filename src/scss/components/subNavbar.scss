@@ -1,0 +1,27 @@
+.subNav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: $black-600;
+  font-family: $inter-font;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  &:hover {
+    color: $green;
+  }
+  &--active {
+    color: $black-900;
+    font-family: $inter-font;
+    &:hover {
+      color: $black-900;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .subNav {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}

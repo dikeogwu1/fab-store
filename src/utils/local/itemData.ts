@@ -1,5 +1,5 @@
 import { featured } from "../../types/random";
-export const featuredItemData: featured = [
+export const itemData: featured = [
   {
     id: 1,
     name: "Skullcandy - Rail True Wireless Earbuds",

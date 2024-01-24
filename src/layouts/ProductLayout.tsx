@@ -11,6 +11,7 @@ import UserRemark from "./UserRemark";
 import DiscountTag from "../components/DiscountTag";
 import AllStars from "../components/AllStars";
 import { productData } from "../utils/local/productData";
+import SubNabar from "../components/SubNabar";
 
 const ProductLayout = () => {
   const [value, setValue] = useState<number>(0);
@@ -65,18 +66,12 @@ const ProductLayout = () => {
   return (
     <div className='product'>
       <header className='product__header'>
-        <Link to='/' className='product__link'>
-          Home <ChevronRight />
-        </Link>
-        <Link to='/' className='product__link'>
-          Shop <ChevronRight />
-        </Link>
-        <Link to='/' className='product__link'>
+        <SubNabar active={false} url='/' name='Home' />
+        <SubNabar active={false} url='/shop' name='Shop' />
+        <button className='product__link'>
           Men's short <ChevronRight />
-        </Link>
-        <Link to='/' className='product__link product__link--active'>
-          Product
-        </Link>
+        </button>
+        <SubNabar active={true} url='/product' name='Product' />
       </header>
       {/* PRODUCT INFO */}
       <div className='product__box'>

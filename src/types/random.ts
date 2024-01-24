@@ -28,6 +28,7 @@ export type featured = {
   price: string;
   discount?: string;
   img: string;
+  desc?: string;
 }[];
 
 // INSTAGRAM / PAYMENT CARDS
@@ -36,7 +37,20 @@ export type images = {
   img: string;
 }[];
 
-// CATEGORIES / COLLECTION / LATEST ARTICLES
+// CATEGORIES / COLLECTIONS BUTTONS
+export type categoriesBtn = {
+  id: number;
+  name: string;
+}[];
+
+// PRICE RANGE BUTTONS
+export type pricesBtns = {
+  id: number;
+  text: string;
+  priceRange: string;
+}[];
+
+// HOME PAGE CATEGORIES / HOME PAGE COLLECTION / LATEST ARTICLES
 export type namesAndImages = {
   id: number;
   name: string;

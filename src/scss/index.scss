@@ -16,6 +16,8 @@
 @import "./layouts/miniCart";
 @import "./layouts/productLayout";
 @import "./layouts/userRemark";
+@import "./layouts/shopLayout";
+@import "./layouts/allProducts";
 
 // components
 @import "./components/brandLogo";
@@ -37,3 +39,8 @@
 @import "./components/review";
 @import "./components/additionalInfo";
 @import "./components/questionProduct";
+@import "./components/subNavbar";
+@import "./components/item";
+@import "./components/categories";
+@import "./components/prices";
+@import "./components/filterBtn";

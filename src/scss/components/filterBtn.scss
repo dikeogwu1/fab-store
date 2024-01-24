@@ -1,0 +1,49 @@
+.filterBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  &__toggle {
+    @include flexJustifyBetweenAlignCenter;
+    width: 100%;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid $neutral-04100;
+    background: transparent;
+    margin-bottom: 1rem;
+  }
+
+  &__filterBy {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1.5px solid $neutral-02100;
+  }
+
+  &__topic {
+    color: $neutral-07100;
+    font-family: $inter-font;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.625rem;
+  }
+
+  &__filterBy {
+    border-radius: 0.75rem;
+    border: 1.5px solid $neutral-02100;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .filterBtn {
+    &__filterBy {
+      border-radius: none;
+      border: none;
+    }
+
+    &__filterBy {
+      border-radius: none;
+      border: none;
+    }
+  }
+}

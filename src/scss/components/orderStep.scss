@@ -1,0 +1,273 @@
+.step {
+  padding: 12rem 1rem 1rem 1rem;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+
+  &__wrapper {
+    &--completed {
+      display: none;
+    }
+    &--finalStep {
+      display: none;
+    }
+    &--last {
+      display: none;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 95vw;
+    gap: 2.5rem;
+    position: absolute;
+    top: -2.5rem;
+    left: 1rem;
+    margin-top: 5rem;
+  }
+
+  &__back {
+    color: $black-600;
+    font-family: $inter-font;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    background: transparent;
+  }
+
+  &__tittle {
+    color: $brand-color;
+    font-family: $popins-font;
+    text-align: center;
+    align-self: center;
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 2.75rem;
+    letter-spacing: -0.025rem;
+  }
+
+  &__btns {
+    display: flex;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: 1.0625rem;
+    width: 13rem;
+    padding-bottom: 1.625rem;
+    padding-bottom: 1.5rem;
+    background: transparent;
+    &--none {
+      width: 2.5rem;
+    }
+    &--currentStep {
+      width: 2.5rem;
+    }
+    &--uncompletedStep {
+      width: 2.5rem;
+    }
+    &--mainStep {
+      width: 2.5rem;
+    }
+    &--active {
+      border-bottom: 2px solid $neutral-07100;
+    }
+    &--completed {
+      border-bottom: 2px solid $green;
+    }
+    &--prevStep {
+      border-bottom: 2px solid $green;
+    }
+  }
+
+  &__number {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    color: $neutrals-8;
+    text-align: center;
+    font-family: $inter-font;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.625rem;
+    background: $neutrals-5;
+    position: relative;
+    &--active {
+      background: $neutrals-2;
+    }
+    &--currentStep {
+      background: $neutrals-2;
+    }
+    &--mainStep {
+      background: $neutrals-2;
+    }
+    &--completed::before {
+      content: "\002714";
+      width: 100%;
+      height: 100%;
+      background: $green;
+      color: $primary-white;
+      display: grid;
+      place-content: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &--prevStep::before {
+      content: "\002714";
+      width: 100%;
+      height: 100%;
+      background: $green;
+      color: $primary-white;
+      display: grid;
+      place-content: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__btnText {
+    font-family: $inter-font;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.625rem;
+    color: $neutrals-5;
+    &--none {
+      display: none;
+    }
+    &--currentStep {
+      display: none;
+    }
+    &--mainStep {
+      display: none;
+    }
+    &--uncompletedStep {
+      display: none;
+    }
+    &--active {
+      color: $neutrals-2;
+    }
+    &--completed {
+      color: $green;
+    }
+    &--prevStep {
+      color: $green;
+    }
+  }
+}
+
+@media screen and (min-width: 340px) {
+  .step {
+    &__btn {
+      width: 16rem;
+      &--uncompletedStep {
+        width: 2.5rem;
+      }
+      &--mainStep {
+        width: 2.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .step {
+    justify-content: center;
+    gap: 2rem;
+    &__tittle {
+      font-size: 3.375rem;
+      line-height: 3.625rem;
+      letter-spacing: -0.0625rem;
+    }
+
+    &__wrapper {
+      &--completed {
+        display: block;
+      }
+      &--last {
+        display: block;
+      }
+      &--finalStep {
+        display: block;
+      }
+    }
+
+    &__header {
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__back {
+      display: none;
+    }
+
+    &__btns {
+      &--completed {
+        display: flex;
+      }
+    }
+
+    &__btn {
+      width: 14rem;
+      &--none {
+        width: 14rem;
+      }
+      &--currentStep {
+        width: 14rem;
+      }
+      &--uncompletedStep {
+        width: 14rem;
+      }
+      &--mainStep {
+        width: 14rem;
+        border-bottom: 2px solid $neutral-07100;
+      }
+      &--completed {
+        display: flex;
+      }
+    }
+
+    &__btnText {
+      &--none {
+        display: contents;
+      }
+      &--currentStep {
+        display: contents;
+      }
+      &--mainStep {
+        display: contents;
+      }
+      &--uncompletedStep {
+        display: contents;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1200px) {
+  .step {
+    padding: 8.5rem 10rem 0rem 10rem;
+
+    &__btn {
+      width: 16rem;
+      &--currentStep {
+        width: 16rem;
+      }
+      &--uncompletedStep {
+        width: 16rem;
+      }
+      &--mainStep {
+        width: 16rem;
+      }
+    }
+  }
+}

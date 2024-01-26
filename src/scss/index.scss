@@ -18,6 +18,7 @@
 @import "./layouts/userRemark";
 @import "./layouts/shopLayout";
 @import "./layouts/allProducts";
+@import "./layouts/checkoutSteps";
 
 // components
 @import "./components/brandLogo";
@@ -44,3 +45,9 @@
 @import "./components/categories";
 @import "./components/prices";
 @import "./components/filterBtn";
+@import "./components/orderStep";
+@import "./components/shoppingCart";
+@import "./components/coupon";
+@import "./components/cartSummary";
+@import "./components/checker";
+@import "./components/checkoutTotal";

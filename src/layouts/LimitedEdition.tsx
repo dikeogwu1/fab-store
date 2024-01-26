@@ -13,7 +13,7 @@ const LimitedEdition = () => {
       </div>
       <div className='limitedEdition__desc'>
         <h4 className='limitedEdition__tittle'>Limited edition</h4>
-        <strong className='limitedEdition__topic'>Hurry up! 40% OFF</strong>
+        <strong className='limitedEdition__topic'>Hurry up! 50% OFF</strong>
         <p className='limitedEdition__prompt'>
           Make haste!!! Winter is coming!
         </p>

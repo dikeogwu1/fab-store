@@ -1,6 +1,7 @@
 import Close from "../assets/Close";
 import Minus from "../assets/Minus";
 import Pluse from "../assets/Pluse";
+import { Link } from "react-router-dom";
 // utils
 import { miniCartData } from "../utils/local/miniCartData";
 import { truncateText } from "../utils/functions/truncate";
@@ -64,7 +65,9 @@ const MiniCartItems = () => {
           <strong className='mini__totalAmount'>$234.00</strong>
         </div>
         <div className='mini__action'>
-          <button className='mini__viewCart'>View Cart</button>
+          <Link to='/cart' className='mini__viewCart'>
+            View Cart
+          </Link>
           <button className='mini__checkout'>Checkout</button>
         </div>
       </footer>

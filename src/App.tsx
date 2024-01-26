@@ -13,6 +13,7 @@ import Product from "./pages/Product";
 import MiniCart from "./layouts/MiniCart";
 import MobileNavbar from "./components/MobileNavbar";
 import Shop from "./pages/Shop";
+import Cart from "./pages/Cart";
 // import Auth from "./RouteProtection";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/shop' element={<Shop />} />
+        <Route path='/cart' element={<Cart />} />
         <Route path='/product/:id' element={<Product />} />
       </Route>
     )

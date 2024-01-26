@@ -1,5 +1,3 @@
-import React from "react";
-
 // UNION
 export type union = string | number;
 
@@ -75,3 +73,10 @@ export type singleReview = {
     desc: string;
   };
 };
+
+// CART SUMMARY
+export type cartSummary = {
+  id: number;
+  text: string;
+  amount: string;
+}[];

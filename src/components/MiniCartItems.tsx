@@ -6,22 +6,29 @@ import { Link } from "react-router-dom";
 import { miniCartData } from "../utils/local/miniCartData";
 import { truncateText } from "../utils/functions/truncate";
 // redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { closeMiniCartModal } from "../features/modal";
+import TicketPercent from "../assets/TicketPercent";
+import { storeType } from "../store";
 
-const MiniCartItems = () => {
+const MiniCartItems = ({ mini }: { mini: boolean }) => {
+  const { freeShipping, expressShipping, pickUp } = useSelector(
+    (store: storeType) => store.shipping
+  );
   const dispatch = useDispatch();
 
   return (
     <div className='mini'>
       <header className='mini__header'>
-        <h2 className='mini__tittle'>Cart</h2>
-        <button
-          className='mini__close'
-          onClick={() => dispatch(closeMiniCartModal())}
-        >
-          <Close />
-        </button>
+        <h2 className='mini__tittle'>{mini ? "Cart" : "Order summary"}</h2>
+        {mini && (
+          <button
+            className='mini__close'
+            onClick={() => dispatch(closeMiniCartModal())}
+          >
+            <Close />
+          </button>
+        )}
       </header>
       <div className='mini__itemBox'>
         {miniCartData.map((item) => {
@@ -46,9 +53,11 @@ const MiniCartItems = () => {
               </div>
               <div className='mini__sum'>
                 <strong className='mini__price'>${price}</strong>
-                <button className='mini__delete'>
-                  <Close />
-                </button>
+                {mini && (
+                  <button className='mini__delete'>
+                    <Close />
+                  </button>
+                )}
               </div>
             </div>
           );
@@ -56,6 +65,52 @@ const MiniCartItems = () => {
       </div>
 
       <footer className='mini__footer'>
+        {/* To display on checkout */}
+        {!mini && (
+          <div className='mini__external'>
+            <form className='mini__coupon'>
+              <input
+                type='text'
+                placeholder='Coupon code'
+                className='mini__input'
+              />
+              <button className='mini__apply'>Apply</button>
+            </form>
+            <div className='mini__item'>
+              <strong className='mini__subText mini__subText--external'>
+                <TicketPercent /> JenkateMW
+              </strong>
+              <strong className='mini__subAmount mini__subAmount--external'>
+                -$25.00 [Remove]
+              </strong>
+            </div>
+            {/* selected transportation means */}
+            <div className='mini__transport'>
+              {/* free shipping */}
+              {freeShipping && (
+                <div className='mini__item'>
+                  <strong className='mini__subText'>Shipping</strong>
+                  <strong className='mini__subAmount'>Free</strong>
+                </div>
+              )}
+              {/* express shipping */}
+              {expressShipping && (
+                <div className='mini__item'>
+                  <strong className='mini__subText'>Shipping</strong>
+                  <strong className='mini__subAmount'>Express</strong>
+                </div>
+              )}
+              {/* pick up */}
+              {pickUp && (
+                <div className='mini__item'>
+                  <strong className='mini__subText'>Shipping</strong>
+                  <strong className='mini__subAmount'>Pick Up</strong>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         <div className='mini__item'>
           <h4 className='mini__subText'>Subtotal</h4>
           <strong className='mini__subAmount'>$99.00</strong>
@@ -64,12 +119,14 @@ const MiniCartItems = () => {
           <h4 className='mini__totalText'>Total</h4>
           <strong className='mini__totalAmount'>$234.00</strong>
         </div>
-        <div className='mini__action'>
-          <Link to='/cart' className='mini__viewCart'>
-            View Cart
-          </Link>
-          <button className='mini__checkout'>Checkout</button>
-        </div>
+        {mini && (
+          <div className='mini__action'>
+            <Link to='/cart' className='mini__viewCart'>
+              View Cart
+            </Link>
+            <button className='mini__checkout'>Checkout</button>
+          </div>
+        )}
       </footer>
     </div>
   );

@@ -3,6 +3,7 @@ import modalSlice from "./features/modal";
 import userSlice from "./features/user";
 import filterSlice from "./features/filters";
 import orderStepSlice from "./features/orderSteps";
+import shippingSlice from "./features/shippingMeans";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     orderStep: orderStepSlice,
     filter: filterSlice,
     user: userSlice,
+    shipping: shippingSlice,
   },
 });
 

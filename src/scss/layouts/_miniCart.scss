@@ -15,4 +15,32 @@
   &::-webkit-scrollbar {
     display: none;
   }
+
+  &__item {
+    display: flex;
+    width: 16rem;
+    height: 46.75rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__item {
+    background: $primary-white;
+  }
+}
+
+@media screen and (min-width: 340px) {
+  .miniCart {
+    &__item {
+      width: 20rem;
+    }
+  }
+}
+@media screen and (min-width: 380px) {
+  .miniCart {
+    &__item {
+      width: 21.4375rem;
+    }
+  }
 }

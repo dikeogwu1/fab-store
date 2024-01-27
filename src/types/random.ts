@@ -79,4 +79,5 @@ export type cartSummary = {
   id: number;
   text: string;
   amount: string;
+  value: string;
 }[];

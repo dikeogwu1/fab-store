@@ -31,7 +31,9 @@ const MiniCart = () => {
 
   return (
     <dialog ref={dialogRef} className='miniCart' onClick={handleClick}>
-      <MiniCartItems />
+      <div className='miniCart__item'>
+        <MiniCartItems mini={true} />
+      </div>
     </dialog>
   );
 };

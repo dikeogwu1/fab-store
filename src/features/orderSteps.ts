@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  activeStep: 2,
-  completedStep: 2,
+  activeStep: 3,
+  completedStep: 3,
 };
 
 const orderStepSlice = createSlice({

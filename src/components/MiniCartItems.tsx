@@ -68,14 +68,14 @@ const MiniCartItems = ({ mini }: { mini: boolean }) => {
         {/* To display on checkout */}
         {!mini && (
           <div className='mini__external'>
-            <form className='mini__coupon'>
+            <div className='mini__coupon'>
               <input
                 type='text'
                 placeholder='Coupon code'
                 className='mini__input'
               />
               <button className='mini__apply'>Apply</button>
-            </form>
+            </div>
             <div className='mini__item'>
               <strong className='mini__subText mini__subText--external'>
                 <TicketPercent /> JenkateMW

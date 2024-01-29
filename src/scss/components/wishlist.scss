@@ -1,0 +1,14 @@
+.wishlist {
+  &__tittle {
+    color: $brand-color;
+    font-family: $inter-font;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 2rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wishlist {
+  }
+}

@@ -15,6 +15,7 @@ import MobileNavbar from "./components/MobileNavbar";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
+import Blog from "./pages/Blog";
 // import Auth from "./RouteProtection";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='/product/:id' element={<Product />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/blog' element={<Blog />} />
       </Route>
     )
   );

@@ -1,9 +1,5 @@
 import FilterIcon from "../assets/FilterIcon";
 import { filters } from "../utils/local/listingData";
-import GridTwo from "../assets/GridTwo";
-import GridOne from "../assets/GridOne";
-import GridTwoSm from "../assets/GridTwoSm";
-import GridThree from "../assets/GridThree";
 import { itemData } from "../utils/local/itemData";
 import { Link } from "react-router-dom";
 import Item from "../components/Item";
@@ -11,6 +7,8 @@ import FilterBtn from "../components/FilterBtn";
 // redux
 import { useSelector } from "react-redux";
 import { storeType } from "../store";
+import Sorting from "../components/Sorting";
+import ShowMore from "../components/ShowMore";
 
 const AllProducts = () => {
   const { filterName } = useSelector((store: storeType) => store.filter);
@@ -42,32 +40,7 @@ const AllProducts = () => {
           {/* Filter by sorting */}
           <div className='allProducts__sortItem'>
             <h4 className='allProducts__filterTittle'>{filterName}</h4>
-            <div className='allProducts__sorting'>
-              <select name='sortBy' className='allProducts__sortBy'>
-                <option value='newest'>Sort by</option>
-                <option value='newest'>Newest</option>
-                <option value='oldest'>Oldest</option>
-              </select>
-              {/* Grid display buttons, to appear on big screens */}
-              <div className='allProducts__gridBtns'>
-                {/* grid three icon */}
-                <button className='allProducts__grid allProducts__grid--lg allProducts__grid--active'>
-                  <GridThree />
-                </button>
-                {/* grid two icon lg */}
-                <button className='allProducts__grid allProducts__grid--lg'>
-                  <GridTwo />
-                </button>
-                {/* grid two sm */}
-                <button className='allProducts__grid allProducts__grid--sm'>
-                  <GridTwoSm />
-                </button>
-                {/*  grid one */}
-                <button className='allProducts__grid allProducts__grid--sm'>
-                  <GridOne />
-                </button>
-              </div>
-            </div>
+            <Sorting />
           </div>
         </header>
 
@@ -97,9 +70,7 @@ const AllProducts = () => {
           </div>
         </div>
       </div>
-      <div className='allProducts__showMore'>
-        <button className='allProducts__showBtn'>Show more</button>
-      </div>
+      <ShowMore />
     </section>
   );
 };

@@ -16,10 +16,11 @@
 @import "./layouts/miniCart";
 @import "./layouts/productLayout";
 @import "./layouts/userRemark";
-@import "./layouts/shopLayout";
+@import "./layouts/hero";
 @import "./layouts/allProducts";
 @import "./layouts/checkoutSteps";
 @import "./layouts/profileLayout";
+@import "./layouts/blogLayout";
 
 // components
 @import "./components/brandLogo";
@@ -57,3 +58,7 @@
 @import "./components/orders";
 @import "./components/address";
 @import "./components/wishlist";
+@import "./components/sorting";
+@import "./components/showMore";
+@import "./components/allBlog";
+@import "./components/blogItem";

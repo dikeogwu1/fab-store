@@ -81,3 +81,21 @@ export type cartSummary = {
   amount: string;
   value: string;
 }[];
+
+// HERO
+export type heroType = {
+  link: string;
+  page: string;
+  desc: string;
+  name: string;
+  bgImage: string;
+};
+
+// BLOG
+export type blogType = {
+  id: number;
+  img: string;
+  exerpt: string;
+  featured: boolean;
+  date: Date;
+}[];

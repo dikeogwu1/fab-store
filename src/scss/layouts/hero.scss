@@ -1,10 +1,9 @@
-.shopLayout {
+.hero {
   padding: 1rem;
   margin-top: 1rem;
 
   &__header {
     min-height: 24.5rem;
-    background: url("https://res.cloudinary.com/dikeogwu1/image/upload/v1705941581/Fabstore%20e-commerce/Shop_page_poster_qtnuf2.png");
     background-size: cover;
     background-position: center;
     display: grid;
@@ -25,6 +24,7 @@
     font-family: $popins-font;
     font-size: 2.5rem;
     font-weight: 500;
+    text-align: center;
     line-height: 2.75rem;
     letter-spacing: -0.025rem;
   }
@@ -40,7 +40,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .shopLayout {
+  .hero {
     &__tittle {
       font-size: 3.375rem;
       line-height: 3.625rem;
@@ -57,7 +57,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .shopLayout {
+  .hero {
     padding: 1rem 10rem 0rem 10rem;
   }
 }

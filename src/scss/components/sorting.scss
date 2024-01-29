@@ -1,0 +1,55 @@
+.sorting {
+  @include flexJustifyBetweenAlignCenter;
+  width: 100%;
+
+  &__sortBy {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: $black-900;
+    font-family: $inter-font;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.625rem;
+    border: none;
+  }
+
+  &__gridBtns {
+    display: flex;
+  }
+
+  &__grid {
+    display: flex;
+    width: 2.875rem;
+    height: 2.5rem;
+    padding: 0.53125rem 0.6875rem 0.46875rem 0.6875rem;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid $neutral-03100;
+    background: $primary-white;
+    &--lg {
+      display: none;
+    }
+    &--active {
+      padding: 0.5rem 0.6875rem;
+      background: $neutral-02100;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sorting {
+    &__sorting {
+      display: flex;
+      align-items: center;
+      width: auto;
+      gap: 2rem;
+    }
+
+    &__grid {
+      &--lg {
+        display: block;
+      }
+    }
+  }
+}

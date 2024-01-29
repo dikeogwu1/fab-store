@@ -1,3 +1,4 @@
+// This type is shared with profileItemsData
 export type stepsType = {
   id: number;
   component: React.ReactNode;

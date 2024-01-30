@@ -41,7 +41,7 @@ const Navbar2 = () => {
         </li>
 
         <li className='navbar2__item'>
-          <Link to='/' className='link'>
+          <Link to='/contact' className='link'>
             Contact us
           </Link>
         </li>

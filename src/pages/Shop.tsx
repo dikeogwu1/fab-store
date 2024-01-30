@@ -4,6 +4,7 @@ import Navbar2 from "../components/Navbar2";
 import AllProducts from "../layouts/AllProducts";
 import InstagramImg from "../layouts/InstagramImg";
 import Hero from "../layouts/Hero";
+import Services from "../layouts/Services";
 
 const Shop = () => {
   return (
@@ -18,7 +19,7 @@ const Shop = () => {
         bgImage='https://res.cloudinary.com/dikeogwu1/image/upload/v1705941581/Fabstore%20e-commerce/Shop_page_poster_qtnuf2.png'
       />
       <AllProducts />
-      <InstagramImg />
+      <Services />
       <Footer />
     </>
   );

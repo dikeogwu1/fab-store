@@ -96,7 +96,7 @@ const MobileNavbar = () => {
             </li>
 
             <li className='mobileNav__item'>
-              <Link to='/' className='mobileNav__link'>
+              <Link to='/contact' className='mobileNav__link'>
                 Contact us
               </Link>
             </li>

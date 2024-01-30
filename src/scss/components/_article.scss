@@ -26,6 +26,8 @@
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.5rem;
+    width: fit-content;
+    align-self: flex-start;
     background: transparent;
     border-bottom: 1px solid $neutral-07100;
   }

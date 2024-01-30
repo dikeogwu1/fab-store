@@ -17,6 +17,7 @@ import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import SingleBlog from "./pages/SingleBlog";
 // import Auth from "./RouteProtection";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/blog/:id' element={<SingleBlog />} />
       </Route>
     )
   );

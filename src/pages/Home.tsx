@@ -26,7 +26,7 @@ const Home = () => {
       <ShopCategories />
       <LimitedEdition />
       <ShopCollections />
-      <LatestArticles />
+      <LatestArticles text='Latest Articles' dated={false} />
       <NewsLetter />
       <NewsFeed />
       <InstagramImg />

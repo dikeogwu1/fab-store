@@ -1,0 +1,260 @@
+.singleBlog {
+  padding: 1rem;
+
+  &__subNav {
+    display: none;
+  }
+
+  &__headBack {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: $black-600;
+    font-family: $inter-font;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    margin-bottom: 3rem;
+    background: transparent;
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  &__tip {
+    color: $brand-color;
+    font-family: $inter-font;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  &__topic,
+  &__tittle {
+    color: $neutral-07100;
+    font-family: $popins-font;
+    font-size: 1.75rem;
+    font-weight: 500;
+    line-height: 2.125rem;
+    letter-spacing: -0.0375rem;
+  }
+
+  &__origin {
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: $neutral-04100;
+    font-family: $inter-font;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+  }
+
+  &__poster {
+    width: 100%;
+    margin: 1rem 0 0 0;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 5rem;
+    width: 100%;
+    border-bottom: 1px solid $neutral-03100;
+  }
+
+  &__postImg {
+    &--lg {
+      display: none;
+    }
+  }
+
+  &__imgBox {
+    width: 100%;
+    height: 25.4375rem;
+  }
+
+  &__topic {
+    font-size: 1.5rem;
+  }
+
+  &__text {
+    color: $brand-color;
+    font-family: $inter-font;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+  }
+
+  &__box,
+  &__descBox,
+  &__lastBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    height: auto;
+  }
+
+  &__desc {
+    &--lg {
+      display: none;
+    }
+  }
+
+  &__more {
+    margin: 1.5rem 0 2.5rem 0;
+  }
+
+  &__moreText {
+    color: $brand-color;
+    font-family: $popins-font;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+  }
+
+  &__moreLink {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .singleBlog {
+    &__subNav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    &__headBack {
+      display: none;
+    }
+
+    &__tittle {
+      font-size: 3.375rem;
+      font-weight: 500;
+      line-height: 3.625rem;
+      letter-spacing: -0.0625rem;
+      max-width: 52.125rem;
+    }
+
+    &__author {
+      font-size: 1rem;
+      line-height: 1.625rem;
+    }
+
+    &__poster {
+      max-width: 69.99906rem;
+      height: 40.43269rem;
+      margin: 2.5rem 0;
+    }
+
+    &__item {
+      gap: 2.5rem;
+      border-bottom: none;
+    }
+
+    &__origin {
+      justify-content: flex-start;
+      width: auto;
+      gap: 3rem;
+    }
+
+    &__box {
+      &--sm {
+        display: none;
+      }
+    }
+
+    &__doubleImg {
+      width: 50%;
+      width: 100%;
+      display: flex;
+      gap: 1.5rem;
+      &--sm {
+        display: none;
+      }
+    }
+
+    &__postImg {
+      max-width: 34.25rem;
+      height: 40.5625rem;
+      &--sm {
+        display: none;
+      }
+      &--lg {
+        display: block;
+      }
+    }
+
+    &__imgBox {
+      width: 50%;
+      height: 25.5625rem;
+      & img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__desc {
+      flex-direction: column;
+      &--sm {
+        display: none;
+      }
+      &--lg {
+        display: block;
+      }
+    }
+
+    &__lastBox {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+
+    &__more {
+      @include flexJustifyBetweenAlignCenter;
+    }
+
+    &__moreText {
+      font-size: 1.75rem;
+      line-height: 2.125rem;
+      letter-spacing: -0.0375rem;
+    }
+
+    &__moreLink {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: $black-900;
+      font-family: $inter-font;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.75rem;
+      letter-spacing: -0.025rem;
+      border-bottom: 2px solid $neutral-04100;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .singleBlog {
+    padding: 1rem 10rem 0rem 10rem;
+  }
+}

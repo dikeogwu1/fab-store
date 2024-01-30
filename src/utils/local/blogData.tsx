@@ -57,7 +57,7 @@ export const blogData: blogType = [
     img: "https://res.cloudinary.com/dikeogwu1/image/upload/v1705351989/Fabstore%20e-commerce/holiday_gift1_1_g3nehg.png",
     exerpt: "2023 Holiday Gift Guide",
     featured: true,
-    date: new Date(year, month, date - 2, 23, 30, 0),
+    date: new Date(year, month, date, -23, 30, 0),
   },
   {
     id: 4,
@@ -99,7 +99,7 @@ export const blogData: blogType = [
     img: "https://res.cloudinary.com/dikeogwu1/image/upload/v1705082613/Fabstore%20e-commerce/Paste_image2_mrmij6.png",
     exerpt: "DIY Fashion: Upcycling Tips to Refresh Your Closet",
     featured: false,
-    date: new Date(year, month - 4, date - 13, 23, 30, 0),
+    date: new Date(year, month - 3, date, 23, 30, 0),
   },
 ];
 

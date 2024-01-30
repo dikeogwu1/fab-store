@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { blogData, months } from "../utils/local/blogData";
 
 type blogType = {
@@ -5,13 +6,13 @@ type blogType = {
 };
 
 const BlogItem = ({ blog }: blogType) => {
-  const { img, exerpt, date } = blog;
+  const { img, exerpt, date, id } = blog;
   const postedMonth: string = `${months[date.getMonth()]}`;
   const postedDate: string = `${date.getDay()}`;
   const postedYear: string = `${date.getFullYear()}`;
 
   return (
-    <div className='blogItem'>
+    <Link to={`/blog/${id}`} className='blogItem'>
       <div className='blogItem__imgBox'>
         <img src={img} alt='Blog poster' />
       </div>
@@ -19,7 +20,7 @@ const BlogItem = ({ blog }: blogType) => {
       <p className='blogItem__desc'>
         {postedMonth} {postedDate}, {postedYear}
       </p>
-    </div>
+    </Link>
   );
 };
 

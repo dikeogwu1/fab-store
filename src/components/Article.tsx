@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ArrowRight from "../assets/ArrowRight";
 import { latestArticles } from "../utils/local/articlesData";
 
@@ -12,9 +13,9 @@ const Article = () => {
               <img src={img} alt={name} />
             </div>
             <h4 className='article__name'>{name}</h4>
-            <button className='article__btn'>
+            <Link to={`/blog/${id}`} className='article__btn'>
               Read More <ArrowRight />
-            </button>
+            </Link>
           </article>
         );
       })}

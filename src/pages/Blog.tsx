@@ -3,11 +3,18 @@ import Navbar2 from "../components/Navbar2";
 import Footer from "../components/Footer";
 import Hero from "../layouts/Hero";
 import BlogLayout from "../layouts/BlogLayout";
+// redux
+import { useDispatch } from "react-redux";
+import { closeProductDropDown, closeShopDropDown } from "../features/modal";
 
 const Blog = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
     window.scrollTo({ top: 0 });
+    dispatch(closeShopDropDown());
+    dispatch(closeProductDropDown());
   }, []);
+
   return (
     <>
       <Navbar2 />

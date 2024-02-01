@@ -11,10 +11,17 @@ import NewsFeed from "../layouts/NewsFeed";
 import InstagramImg from "../layouts/InstagramImg";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
+// redux
+import { useDispatch } from "react-redux";
+import { closeProductDropDown, closeShopDropDown } from "../features/modal";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     window.scrollTo({ top: 0 });
+    dispatch(closeShopDropDown());
+    dispatch(closeProductDropDown());
   }, []);
 
   return (

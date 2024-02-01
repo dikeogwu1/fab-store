@@ -2,11 +2,22 @@ import Footer from "../components/Footer";
 import Navbar1 from "../components/Navbar1";
 import Navbar2 from "../components/Navbar2";
 import AllProducts from "../layouts/AllProducts";
-import InstagramImg from "../layouts/InstagramImg";
 import Hero from "../layouts/Hero";
 import Services from "../layouts/Services";
+import { useEffect } from "react";
+// redux
+import { useDispatch } from "react-redux";
+import { closeProductDropDown, closeShopDropDown } from "../features/modal";
 
 const Shop = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+    dispatch(closeShopDropDown());
+    dispatch(closeProductDropDown());
+  }, []);
+
   return (
     <>
       <Navbar1 />

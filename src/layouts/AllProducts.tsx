@@ -40,7 +40,9 @@ const AllProducts = () => {
           {/* Filter by sorting */}
           <div className='allProducts__sortItem'>
             <h4 className='allProducts__filterTittle'>{filterName}</h4>
-            <Sorting />
+            <div className='allProducts__sortBy'>
+              <Sorting />
+            </div>
           </div>
         </header>
 

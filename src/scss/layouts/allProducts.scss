@@ -123,12 +123,18 @@
       align-self: stretch;
       order: 2;
       display: flex;
+      width: 100%;
     }
 
     &__filterTittle {
       font-size: 1.25rem;
       line-height: 2rem;
       display: block;
+      width: 60%;
+    }
+
+    &__sortBy {
+      width: 21rem;
     }
 
     &__topic {

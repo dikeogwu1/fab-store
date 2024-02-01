@@ -5,13 +5,28 @@ import ChevronDown from "../assets/ChevronDown";
 import MenuLine from "../assets/MenuLine";
 import CartItemsCounter from "./CartItemsCounter";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import ChevronUp from "../assets/ChevronUp";
+import ShopSubMenu from "./ShopSubMenu";
+import ProductSubMenu from "./ProductSubMenu";
+
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { storeType } from "../store";
-import { openMobileNav } from "../features/modal";
+import {
+  closeProductDropDown,
+  closeShopDropDown,
+  openMobileNav,
+  toggleProductDropDown,
+  toggleShopDropDown,
+} from "../features/modal";
 
 const Navbar2 = () => {
+  const [activeSub, setActiveSub] = useState<string>("Product");
   const { isLoggedIn } = useSelector((store: storeType) => store.user);
+  const { isShopDropDown, isProductDropDown } = useSelector(
+    (store: storeType) => store.modal
+  );
 
   const dispatch = useDispatch();
 
@@ -33,11 +48,25 @@ const Navbar2 = () => {
           </Link>
         </li>
 
-        <li className='navbar2__item'>
-          <button className='navbar2__dropDown'>Shop</button> <ChevronDown />
+        <li
+          className='navbar2__item'
+          onClick={() => {
+            dispatch(toggleShopDropDown());
+            dispatch(closeProductDropDown());
+          }}
+        >
+          <button className='navbar2__dropDown'>Shop</button>
+          {isShopDropDown ? <ChevronUp nav={true} /> : <ChevronDown />}
         </li>
-        <li className='navbar2__item'>
-          <button className='navbar2__dropDown'>Product</button> <ChevronDown />
+        <li
+          className='navbar2__item'
+          onClick={() => {
+            dispatch(toggleProductDropDown());
+            dispatch(closeShopDropDown());
+          }}
+        >
+          <button className='navbar2__dropDown'>Product</button>
+          {isProductDropDown ? <ChevronUp nav={true} /> : <ChevronDown />}
         </li>
 
         <li className='navbar2__item'>
@@ -68,6 +97,8 @@ const Navbar2 = () => {
         </div>
 
         <CartItemsCounter />
+        {isShopDropDown && <ShopSubMenu />}
+        {isProductDropDown && <ProductSubMenu />}
       </div>
     </nav>
   );

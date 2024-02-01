@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isModal: false,
-  isAlert: false,
+  isShopDropDown: false,
+  isProductDropDown: false,
   isUserModal: false,
   isMobileNav: false,
   miniCartModal: false,
@@ -12,11 +13,25 @@ const modalSlice = createSlice({
   name: "modal",
   initialState,
   reducers: {
-    showAlert: (state) => {
-      state.isAlert = true;
+    toggleShopDropDown: (state) => {
+      if (state.isShopDropDown) {
+        state.isShopDropDown = false;
+      } else {
+        state.isShopDropDown = true;
+      }
     },
-    hideAlert: (state) => {
-      state.isAlert = false;
+    closeShopDropDown: (state) => {
+      state.isShopDropDown = false;
+    },
+    toggleProductDropDown: (state) => {
+      if (state.isProductDropDown) {
+        state.isProductDropDown = false;
+      } else {
+        state.isProductDropDown = true;
+      }
+    },
+    closeProductDropDown: (state) => {
+      state.isProductDropDown = false;
     },
     openMobileNav: (state) => {
       state.isMobileNav = true;
@@ -49,8 +64,10 @@ const modalSlice = createSlice({
   },
 });
 export const {
-  showAlert,
-  hideAlert,
+  toggleProductDropDown,
+  toggleShopDropDown,
+  closeProductDropDown,
+  closeShopDropDown,
   showModal,
   hideModal,
   toggleUserModal,

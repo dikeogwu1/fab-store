@@ -3,6 +3,7 @@
   padding: 1rem 1rem;
   background: $primary-white;
   @include flexJustifyBetweenAlignCenter;
+  position: relative;
 
   &__brand {
     @include flexJustifyCenterAlignCenter;

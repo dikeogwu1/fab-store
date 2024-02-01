@@ -1,11 +1,15 @@
 import { useEffect } from "react";
 import Navbar2 from "../components/Navbar2";
+import Services from "../layouts/Services";
+import Footer from "../components/Footer";
+import ContactLayout from "../layouts/ContactLayout";
 // redux
 import { useDispatch } from "react-redux";
-import { closeMobileNav } from "../features/modal";
-import ContactLayout from "../layouts/ContactLayout";
-import Footer from "../components/Footer";
-import Services from "../layouts/Services";
+import {
+  closeMobileNav,
+  closeProductDropDown,
+  closeShopDropDown,
+} from "../features/modal";
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -13,6 +17,8 @@ const Contact = () => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
     dispatch(closeMobileNav());
+    dispatch(closeShopDropDown());
+    dispatch(closeProductDropDown());
   }, []);
 
   return (

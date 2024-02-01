@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import ChevronRight from "../assets/ChevronRight";
 import ArrowLeft from "../assets/ArrowLeft";
 import ArrowRight from "../assets/ArrowRight";
@@ -20,7 +19,6 @@ const ProductLayout = () => {
 
   // product full data
   const {
-    id,
     name,
     description,
     price,

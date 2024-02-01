@@ -8,11 +8,11 @@ const OrderComplete = () => {
         <h2 className='complete__tittle'>Your order has been received</h2>
         <div className='complete__item'>
           {miniCartData.map((item) => {
-            const { id, img, name } = item;
+            const { id, images, name } = item;
             return (
               <div className='complete__imgBox' key={id}>
                 <sup className='complete__super'>{id}</sup>
-                <img src={img} alt={name} />
+                <img src={images[0].img} alt={name} />
               </div>
             );
           })}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ChevronUp from "../assets/ChevronUp";
 import ChevronDown from "../assets/ChevronDown";
 import { filters } from "../utils/local/listingData";
@@ -8,20 +8,11 @@ import { storeType } from "../store";
 
 type btnType = (typeof filters)[0];
 
-const FilterBtn = ({ id, name, component }: btnType) => {
+const FilterBtn = ({ name, component }: btnType) => {
   const [openOptions, setOpenOptions] = useState<boolean>(false);
   const { selectedName, selectedPrice } = useSelector(
     (store: storeType) => store.filter
   );
-
-  let display: string = "";
-  useEffect(() => {
-    if (name === "Categories" || name === "Collections") {
-      display = selectedName;
-    } else {
-      display = selectedPrice;
-    }
-  }, [selectedName, selectedPrice]);
 
   return (
     <div className='filterBtn'>

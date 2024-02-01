@@ -3,7 +3,7 @@ import AllStars from "./AllStars";
 import { FaUserCircle } from "react-icons/fa";
 
 const Review = ({ review }: singleReview) => {
-  const { id, img, rating, name, desc } = review;
+  const { img, rating, name, desc } = review;
   return (
     <div className='review'>
       <header className='review__header'>

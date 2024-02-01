@@ -10,16 +10,16 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    userLogin: (state, action) => {
+    userLogin: (state) => {
       state.isLoggedIn = true;
     },
-    userLogout: (state, action) => {
+    userLogout: (state) => {
       state.isLoggedIn = false;
     },
-    startLoading: (state, action) => {
+    startLoading: (state) => {
       state.isLoading = true;
     },
-    stopLoading: (state, action) => {
+    stopLoading: (state) => {
       state.isLoading = false;
     },
     currentUser: (state, action) => {

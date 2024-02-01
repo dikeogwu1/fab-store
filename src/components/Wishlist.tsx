@@ -16,7 +16,7 @@ const Wishlist = () => {
       {/* First order */}
       <div className='wishlist__details'>
         {miniCartData.map((item) => {
-          const { id, img, name, price, color } = item;
+          const { id, images, name, price, colors } = item;
           return (
             <div className='wishlist__item' key={id}>
               <div className='wishlist__productWrapper'>
@@ -25,12 +25,12 @@ const Wishlist = () => {
                     <Close />
                   </button>
                   <div className='wishlist__imgBox'>
-                    <img src={img} alt={name} />
+                    <img src={images[0].img} alt={name} />
                   </div>
                 </div>
                 <div className='wishlist___desc'>
                   <strong className='wishlist__itemName'>{name}</strong>
-                  <p className='wishlist__color'>Color: {color}</p>
+                  <p className='wishlist__color'>Color: {colors[0].name}</p>
                   <strong className='wishlist__price wishlist__price--sm'>
                     ${price}
                   </strong>

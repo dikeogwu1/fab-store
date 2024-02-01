@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { btns, checkoutState } from "../utils/local/orderStepsData";
+import { btns } from "../utils/local/orderStepsData";
 import ChevronLeft from "../assets/ChevronLeft";
 // redux
 import { useDispatch, useSelector } from "react-redux";

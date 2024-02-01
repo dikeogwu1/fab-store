@@ -10,4 +10,5 @@ export type product = {
   category: string;
   images: { id: number; img: string }[];
   reviews: number;
+  amount: number;
 };

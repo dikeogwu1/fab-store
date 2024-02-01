@@ -1,5 +1,6 @@
-import { categories } from "../../types/random";
-export const shopCategories: categories = [
+import { namesAndImages } from "../../types/random";
+
+export const shopCategories: namesAndImages = [
   {
     id: 1,
     name: "Polo Shirts",

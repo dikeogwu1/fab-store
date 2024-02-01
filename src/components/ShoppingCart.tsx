@@ -24,11 +24,11 @@ const ShoppingCart = () => {
                 {/* product */}
                 <div className='cart__product'>
                   <div className='cart__imgBox'>
-                    <img src={item.img} alt='fashion product' />
+                    <img src={item.images[0].img} alt='fashion product' />
                   </div>
                   <div className='cart__desc'>
                     <strong className='cart__name'>{item.name}</strong>
-                    <p className='cart__color'>Color: {item.color}</p>
+                    <p className='cart__color'>Color: {item.colors[0].name}</p>
                     {/* remove button */}
                     <button className='cart__removeBtn cart__removeBtn--lg'>
                       <Close /> Remove

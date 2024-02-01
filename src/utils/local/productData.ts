@@ -8,6 +8,7 @@ export const productData: product = {
   price: 199.55,
   offer: true,
   discountPrice: 199.09,
+  amount: 0,
   sizes: [
     { id: 1, size: "M" },
     { id: 2, size: "XL" },

@@ -32,15 +32,15 @@ const MiniCartItems = ({ mini }: { mini: boolean }) => {
       </header>
       <div className='mini__itemBox'>
         {miniCartData.map((item) => {
-          const { id, img, price, color, name } = item;
+          const { id, images, price, colors, name } = item;
           return (
             <div className='mini__item' key={id}>
               <div className='mini__imgBox'>
-                <img src={img} alt={name} />
+                <img src={images[0].img} alt={name} />
               </div>
               <div className='mini__desc'>
                 <h4 className='mini__name'>{truncateText(name, 11)}</h4>
-                <p className='mini__color'>Color: {color}</p>
+                <p className='mini__color'>Color: {colors[0].name}</p>
                 <div className='mini__btnBox'>
                   <button className='mini__btn'>
                     <Pluse />

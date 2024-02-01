@@ -7,6 +7,7 @@ const initialState = {
   isUserModal: false,
   isMobileNav: false,
   miniCartModal: false,
+  searchModal: false,
 };
 
 const modalSlice = createSlice({
@@ -61,9 +62,17 @@ const modalSlice = createSlice({
     closeMiniCartModal: (state) => {
       state.miniCartModal = false;
     },
+    openSearchModal: (state) => {
+      state.searchModal = true;
+    },
+    closeSearchModal: (state) => {
+      state.searchModal = false;
+    },
   },
 });
 export const {
+  openSearchModal,
+  closeSearchModal,
   toggleProductDropDown,
   toggleShopDropDown,
   closeProductDropDown,

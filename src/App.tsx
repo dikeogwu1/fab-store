@@ -18,7 +18,11 @@ import Profile from "./pages/Profile";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import SingleBlog from "./pages/SingleBlog";
+import SearchProduct from "./components/SearchProduct";
 // import Auth from "./RouteProtection";
+// redux
+import { useDispatch } from "react-redux";
+import { closeProductDropDown, closeShopDropDown } from "./features/modal";
 
 function App() {
   // APP ROUTER
@@ -47,12 +51,29 @@ function App() {
 }
 
 function Root() {
+  const dispatch = useDispatch();
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLDialogElement, MouseEvent>
+  ): void => {
+    const dialogElement = e.target as HTMLElement;
+    const parentElement = dialogElement.parentElement as HTMLElement;
+    if (
+      !dialogElement.classList.contains("dropDown") &&
+      !parentElement.classList.contains("dropDown")
+    ) {
+      dispatch(closeShopDropDown());
+      dispatch(closeProductDropDown());
+    }
+  };
+
   return (
-    <>
+    <main onClick={handleClick}>
       <MobileNavbar />
       <MiniCart />
+      <SearchProduct />
       <Outlet />
-    </>
+    </main>
   );
 }
 

@@ -5,7 +5,6 @@ import ChevronDown from "../assets/ChevronDown";
 import MenuLine from "../assets/MenuLine";
 import CartItemsCounter from "./CartItemsCounter";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import ChevronUp from "../assets/ChevronUp";
 import ShopSubMenu from "./ShopSubMenu";
 import ProductSubMenu from "./ProductSubMenu";
@@ -17,12 +16,12 @@ import {
   closeProductDropDown,
   closeShopDropDown,
   openMobileNav,
+  openSearchModal,
   toggleProductDropDown,
   toggleShopDropDown,
 } from "../features/modal";
 
 const Navbar2 = () => {
-  const [activeSub, setActiveSub] = useState<string>("Product");
   const { isLoggedIn } = useSelector((store: storeType) => store.user);
   const { isShopDropDown, isProductDropDown } = useSelector(
     (store: storeType) => store.modal
@@ -49,23 +48,23 @@ const Navbar2 = () => {
         </li>
 
         <li
-          className='navbar2__item'
+          className='navbar2__item dropDown'
           onClick={() => {
             dispatch(toggleShopDropDown());
             dispatch(closeProductDropDown());
           }}
         >
-          <button className='navbar2__dropDown'>Shop</button>
+          <button className='navbar2__dropDown dropDown'>Shop</button>
           {isShopDropDown ? <ChevronUp nav={true} /> : <ChevronDown />}
         </li>
         <li
-          className='navbar2__item'
+          className='navbar2__item dropDown'
           onClick={() => {
             dispatch(toggleProductDropDown());
             dispatch(closeShopDropDown());
           }}
         >
-          <button className='navbar2__dropDown'>Product</button>
+          <button className='navbar2__dropDown dropDown'>Product</button>
           {isProductDropDown ? <ChevronUp nav={true} /> : <ChevronDown />}
         </li>
 
@@ -77,7 +76,10 @@ const Navbar2 = () => {
       </ul>
       <div className='navbar2__tools'>
         <div className='navbar2__tool'>
-          <button className='navbar2__search'>
+          <button
+            className='navbar2__search'
+            onClick={() => dispatch(openSearchModal())}
+          >
             <Search />
           </button>
           {isLoggedIn ? (

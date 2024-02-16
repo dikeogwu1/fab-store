@@ -46,12 +46,20 @@
     line-height: 1.625rem;
   }
 
+  &__demo,
   &__link {
     color: $green;
     font-family: $inter-font;
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.625rem;
+  }
+
+  &__demo {
+    color: $green;
+    padding: 0.25rem;
+    margin-left: 1rem;
+    border-radius: 0.25rem;
   }
 
   &__form {
@@ -153,6 +161,9 @@
     letter-spacing: -0.025rem;
     &:hover {
       color: $green;
+    }
+    &:disabled {
+      cursor: not-allowed;
     }
   }
 }

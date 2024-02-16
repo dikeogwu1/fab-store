@@ -50,6 +50,9 @@
     &:focus {
       outline: 1.5px solid $black-300;
     }
+    &--error {
+      border: 1px solid $primary-red;
+    }
   }
 
   &__desc {

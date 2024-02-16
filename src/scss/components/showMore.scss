@@ -20,6 +20,14 @@
       color: $primary-white;
       background: $neutral-07100;
     }
+    &:disabled {
+      cursor: auto;
+      opacity: 0.4;
+      &:hover {
+        color: $neutral-07100;
+        background: transparent;
+      }
+    }
   }
 }
 

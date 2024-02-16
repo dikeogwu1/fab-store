@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { pricesButtons } from "../utils/local/productFilterData";
 // redux
 import { useDispatch } from "react-redux";
-import { setFilterPrice, setPriceArange } from "../features/filters";
+import {
+  setFilterPrice,
+  setPriceGreaterThan,
+  setPriceLessThan,
+} from "../features/filters";
 
 const Prices = () => {
   const [selectedButton, setSelectedButton] = useState<number>(1);
@@ -30,7 +34,10 @@ const Prices = () => {
               data-id={btn.id}
               onClick={() => {
                 setSelectedButton(btn.id);
-                dispatch(setPriceArange({ range: btn.priceRange }));
+                dispatch(
+                  setPriceGreaterThan({ greaterThan: btn.pricesGreaterThan })
+                );
+                dispatch(setPriceLessThan({ lessThan: btn.pricesLessThan }));
                 dispatch(setFilterPrice({ price: btn.text }));
               }}
             >

@@ -19,6 +19,7 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import SingleBlog from "./pages/SingleBlog";
 import SearchProduct from "./components/SearchProduct";
+import { ToastContainer } from "react-toastify";
 // import Auth from "./RouteProtection";
 // redux
 import { useDispatch } from "react-redux";
@@ -69,6 +70,7 @@ function Root() {
 
   return (
     <main onClick={handleClick}>
+      <ToastContainer />
       <MobileNavbar />
       <MiniCart />
       <SearchProduct />

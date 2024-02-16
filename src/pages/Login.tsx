@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Authenticate from "../layouts/Authenticate";
+import LoginLayout from "../layouts/LoginLayout";
 
 const Login = () => {
   useEffect(() => {
@@ -8,7 +8,7 @@ const Login = () => {
 
   return (
     <>
-      <Authenticate isRegister={false} />
+      <LoginLayout />
     </>
   );
 };

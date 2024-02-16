@@ -1,58 +1,72 @@
 import { useEffect, useState } from "react";
-import { categoriesFilterBtn } from "../utils/local/productFilterData";
+import {
+  categoriesFilterBtn,
+  collectionFilterBtn,
+} from "../utils/local/productFilterData";
 // redux
 import { useDispatch, useSelector } from "react-redux";
-import { filterProduct, setFilterName } from "../features/filters";
+import {
+  filterProduct,
+  searchByName,
+  setDispayedFilter,
+  setFilterName,
+} from "../features/filters";
 import { storeType } from "../store";
 
 const Categories = () => {
-  const [selectedButton, setSelectedButton] = useState<number>(3);
-  const { filterName, filterBy } = useSelector(
+  // const [selectedButton, setSelectedButton] = useState<string>("");
+  const { filterName, filterBy, selectedName } = useSelector(
     (store: storeType) => store.filter
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
     const allBtn = document.querySelectorAll(".categories__btn");
-    const singleButton = allBtn[2] as HTMLElement;
     // Make third button active, when no button is selected
-    if (!filterBy && !filterName) {
+    if (!filterBy && !filterName && !selectedName) {
       dispatch(
         filterProduct({
           filterBy: "categories",
-          filterName: singleButton.textContent,
+          filterName: `All categories`,
         })
       );
-      dispatch(setFilterName({ name: singleButton.textContent }));
     }
     // Conditionally add active state
     allBtn.forEach((btn) => {
       btn.classList.remove("categories__btn--active");
       const singleButton = btn as HTMLElement;
 
-      if (parseInt(singleButton.dataset.id!) === selectedButton) {
+      if (singleButton.dataset.id! === filterName) {
         btn.classList.add("categories__btn--active");
       }
     });
-  }, [selectedButton]);
+  }, [filterName]);
 
   return (
     <div className='categories'>
-      {categoriesFilterBtn.map((btn) => {
+      {(filterBy === "categories"
+        ? categoriesFilterBtn
+        : collectionFilterBtn
+      ).map((btn) => {
         return (
           <button
             className='categories__btn'
-            data-id={btn.id}
+            data-id={btn.name}
             key={btn.id}
             onClick={() => {
-              setSelectedButton(btn.id);
+              dispatch(searchByName(""));
               dispatch(
-                filterProduct({
-                  filterBy: "categories",
+                setDispayedFilter({
                   filterName: btn.name,
                 })
               );
-              dispatch(setFilterName({ name: btn.name }));
+              if (btn.name === "Men’s Set") {
+                dispatch(setFilterName({ name: "Men Set" }));
+              } else if (btn.name === "Lady’s Set") {
+                dispatch(setFilterName({ name: "Lady Set" }));
+              } else {
+                dispatch(setFilterName({ name: btn.name }));
+              }
             }}
           >
             {btn.name}

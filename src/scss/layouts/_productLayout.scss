@@ -1,6 +1,7 @@
 .product {
   padding: 1rem 1rem;
   margin-top: 1rem;
+  min-height: 100vh;
 
   &__header {
     display: flex;
@@ -234,6 +235,7 @@
     height: 1.5rem;
     border-radius: 50%;
     background: #000;
+    border: 0.1px solid $neutral-07100;
     &--active {
       outline: 3px solid $neutral-04100;
     }

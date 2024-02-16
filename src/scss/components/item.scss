@@ -9,6 +9,19 @@
       #f3f5f7;
     background-blend-mode: multiply, normal;
     position: relative;
+    & img {
+      cursor: pointer;
+    }
+  }
+
+  &__navigator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: transparent;
   }
 
   &__heart {

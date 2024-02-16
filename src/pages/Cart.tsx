@@ -7,6 +7,7 @@ import OrderStep from "../components/OrderStep";
 import { useDispatch } from "react-redux";
 import {
   closeMiniCartModal,
+  closeMobileNav,
   closeProductDropDown,
   closeShopDropDown,
 } from "../features/modal";

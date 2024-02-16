@@ -13,7 +13,7 @@ export const carouselData: carousel = [
     title: "Bring the warmth.",
     desc: `Everyone needs a good winter jacket. Find yours with our collection and more.`,
     img: `https://res.cloudinary.com/dikeogwu1/image/upload/v1705007784/Fabstore%20e-commerce/Paste_image_7_edited_uicsgc.png`,
-    link: "product",
+    link: "shop",
     btn: "Show more",
   },
   {
@@ -21,7 +21,7 @@ export const carouselData: carousel = [
     title: "More than fashion. It’s a lifestyle.",
     desc: `Whether you’re just starting out, have loved fashion all your life.`,
     img: `https://res.cloudinary.com/dikeogwu1/image/upload/v1705077208/Fabstore%20e-commerce/Paste_image_9_edited_zz3fva.png`,
-    link: "signup",
-    btn: "Discover more",
+    link: "register",
+    btn: "Register now",
   },
 ];

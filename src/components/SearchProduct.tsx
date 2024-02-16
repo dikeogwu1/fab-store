@@ -1,24 +1,23 @@
+import { useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { storeType } from "../store";
 import Close from "../assets/Close";
 import Search from "../assets/Search";
+// redux
+import { useDispatch, useSelector } from "react-redux";
 import { closeSearchModal } from "../features/modal";
+import {
+  searchByName,
+  setDispayedFilter,
+  setFilterName,
+} from "../features/filters";
 
 const SearchProduct = () => {
   const { searchModal } = useSelector((store: storeType) => store.modal);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (searchModal) {
-  //     dialogRef.current?.showModal();
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     dialogRef.current?.close();
-  //     document.body.style.overflow = "auto";
-  //   }
-  // }, [searchModal]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (searchModal) {
@@ -55,6 +54,25 @@ const SearchProduct = () => {
     }
   };
 
+  const handleSubmit = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void => {
+    e.preventDefault();
+    if (inputRef.current?.value) {
+      dispatch(closeSearchModal());
+      dispatch(searchByName(inputRef.current?.value));
+      dispatch(setFilterName({ name: "" }));
+      dispatch(setDispayedFilter({ filterName: inputRef.current.value }));
+      navigate("/shop");
+    }
+  };
+
+  useEffect(() => {
+    if (inputRef.current?.value) {
+      inputRef.current.value = "";
+    }
+  }, []);
+
   return (
     <dialog ref={dialogRef} className='search' onClick={handleClick}>
       <div className='search__item'>
@@ -68,10 +86,12 @@ const SearchProduct = () => {
           <input
             type='text'
             name='search'
+            autoComplete='off'
+            ref={inputRef}
             placeholder='Search for your favorite'
             className='search__input'
           />
-          <button className='search__submit'>
+          <button className='search__submit' onClick={handleSubmit}>
             <Search />
           </button>
         </form>

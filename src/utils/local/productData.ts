@@ -1,7 +1,7 @@
 import { product } from "../../types/product";
 
-export const productData: product = {
-  id: 1,
+export const singleProduct: product = {
+  _id: "1",
   name: "Men's short",
   description:
     "Buy one or buy a few and make every space where you sit more convenient. Light and easy to move around with removable tray top, handy for serving snacks.",
@@ -9,6 +9,7 @@ export const productData: product = {
   offer: true,
   discountPrice: 199.09,
   amount: 0,
+  numOfReviews: 0,
   sizes: [
     { id: 1, size: "M" },
     { id: 2, size: "XL" },
@@ -30,5 +31,4 @@ export const productData: product = {
       img: "https://res.cloudinary.com/dikeogwu1/image/upload/v1705269669/Fabstore%20e-commerce/Short4_lhgvds.jpg",
     },
   ],
-  reviews: 11,
 };

@@ -5,6 +5,7 @@ import ChevronLeft from "../assets/ChevronLeft";
 import { useDispatch, useSelector } from "react-redux";
 import { storeType } from "../store";
 import { previousStep, setActiveStep } from "../features/orderSteps";
+import { closeMiniCartModal, closeMobileNav } from "../features/modal";
 
 const OrderStep = () => {
   const { activeStep, completedStep } = useSelector(
@@ -14,6 +15,8 @@ const OrderStep = () => {
 
   useEffect(() => {
     dispatch(setActiveStep(completedStep));
+    dispatch(closeMobileNav());
+    dispatch(closeMiniCartModal());
   }, []);
 
   return (

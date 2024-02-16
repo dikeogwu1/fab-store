@@ -1,9 +1,11 @@
 import ShoppingBag from "../assets/ShoppingBag";
 // redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openMiniCartModal } from "../features/modal";
+import { storeType } from "../store";
 
 const CartItemsCounter = () => {
+  const { cart } = useSelector((store: storeType) => store.cart);
   const dispatch = useDispatch();
 
   return (
@@ -14,7 +16,7 @@ const CartItemsCounter = () => {
       >
         <ShoppingBag />
       </button>
-      <div className='itemsCounter__shoppingBagCount'>2</div>
+      <div className='itemsCounter__shoppingBagCount'>{cart.length}</div>
     </div>
   );
 };

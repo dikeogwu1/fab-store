@@ -2,8 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoggedIn: false,
-  isLoading: false,
-  userName: "",
+  firstName: "",
+  lastName: "",
+  displayName: "",
 };
 
 const userSlice = createSlice({
@@ -15,18 +16,14 @@ const userSlice = createSlice({
     },
     userLogout: (state) => {
       state.isLoggedIn = false;
+      localStorage.removeItem("token");
     },
-    startLoading: (state) => {
-      state.isLoading = true;
-    },
-    stopLoading: (state) => {
-      state.isLoading = false;
-    },
-    currentUser: (state, action) => {
-      state.userName = action.payload;
+    setCurrentUser: (state, action) => {
+      state.firstName = action.payload.firstName;
+      state.lastName = action.payload.lastName;
+      state.displayName = action.payload.displayName;
     },
   },
 });
-export const { userLogin, userLogout, startLoading, stopLoading, currentUser } =
-  userSlice.actions;
+export const { userLogin, userLogout, setCurrentUser } = userSlice.actions;
 export default userSlice.reducer;

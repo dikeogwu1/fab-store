@@ -1,5 +1,6 @@
 .cart {
   width: 100%;
+  margin-bottom: 5rem;
 
   &__container {
     width: 100%;
@@ -110,6 +111,13 @@
 
   &__subtotalPrice {
     display: none;
+  }
+
+  &__empty {
+    margin-top: 4rem;
+    color: $neutrals-7;
+    font-family: $inter-font;
+    font-size: 1.875rem;
   }
 }
 

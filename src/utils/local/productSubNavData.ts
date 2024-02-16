@@ -43,6 +43,14 @@ export const productSubData = [
         id: 10,
         name: "Accessorie",
       },
+      {
+        id: 11,
+        name: "Short",
+      },
+      {
+        id: 12,
+        name: "Shirt",
+      },
     ],
   },
   {
@@ -76,6 +84,22 @@ export const productSubData = [
       {
         id: 7,
         name: "Winter Set",
+      },
+      {
+        id: 8,
+        name: "Corporate Set",
+      },
+      {
+        id: 9,
+        name: "Gulf Set",
+      },
+      {
+        id: 10,
+        name: "Makeup Set",
+      },
+      {
+        id: 11,
+        name: "Classic Set",
       },
     ],
   },

@@ -5,6 +5,7 @@ import ChevronLeft from "../assets/ChevronLeft";
 import UserLight from "../assets/UserLight";
 import AllBlog from "../components/AllBlog";
 import ArrowRight from "../assets/ArrowRight";
+import { useEffect } from "react";
 
 const SingleBlogLayout = () => {
   const { id } = useParams();
@@ -18,6 +19,10 @@ const SingleBlogLayout = () => {
   const featured = blogData
     .slice(0, 4)
     .filter((blog) => blog.featured === true);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [id]);
 
   return (
     <article className='singleBlog'>

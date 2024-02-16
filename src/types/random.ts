@@ -21,11 +21,11 @@ export type carousel = {
 
 // FEATURED ITEMS
 export type featured = {
-  id: number;
+  _id: string;
   name: string;
   price: string;
   discount?: string;
-  img: string;
+  images: { id: number; img: string }[];
   desc?: string;
 }[];
 
@@ -45,7 +45,8 @@ export type categoriesBtn = {
 export type pricesBtns = {
   id: number;
   text: string;
-  priceRange: string;
+  pricesGreaterThan: number;
+  pricesLessThan: string;
 }[];
 
 // HOME PAGE CATEGORIES / HOME PAGE COLLECTION / LATEST ARTICLES
@@ -53,6 +54,7 @@ export type namesAndImages = {
   id: number;
   name: string;
   img: string;
+  link?: string;
 }[];
 
 // REVIEWS
@@ -78,8 +80,9 @@ export type singleReview = {
 export type cartSummary = {
   id: number;
   text: string;
-  amount: string;
+  amount: number;
   value: string;
+  symbol: string;
 }[];
 
 // HERO
@@ -99,3 +102,13 @@ export type blogType = {
   featured: boolean;
   date: Date;
 }[];
+
+// CONTACT INFORMATION
+export type contactInformation = {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  streetAddress: string;
+  city: string;
+  state: string;
+};

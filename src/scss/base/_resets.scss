@@ -22,7 +22,7 @@ button {
   transition: $transition;
 
   &:disabled {
-    cursor: auto;
+    cursor: not-allowed;
   }
 }
 

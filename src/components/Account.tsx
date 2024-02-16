@@ -1,6 +1,88 @@
+import axios from "axios";
+import { useRef, useState } from "react";
+// utils
+import { ToastContainer, toast } from "react-toastify";
+import { getTokenFromLocalStorage } from "../utils/functions/localStorage";
+// redux
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../features/user";
+
+const initialState = {
+  firstName: "",
+  lastName: "",
+  displayName: "",
+  email: "",
+  oldPassword: "",
+  newPassword: "",
+  repeatPassword: "",
+};
+
 const Account = () => {
+  const [values, setValues] = useState(initialState);
+  const repeatPasswordRef = useRef<HTMLInputElement>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const disptach = useDispatch();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setValues({ ...values, [name]: value });
+    repeatPasswordRef.current?.classList.remove("account__input--error");
+  };
+
+  const updateCridentials = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+
+    if (
+      !values.firstName ||
+      !values.firstName ||
+      !values.displayName ||
+      !values.email ||
+      !values.oldPassword ||
+      !values.newPassword ||
+      !values.repeatPassword
+    ) {
+      toast.error("Please fill out all fields");
+      return;
+    }
+
+    if (values.newPassword !== values.repeatPassword) {
+      repeatPasswordRef.current?.classList.add("account__input--error");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const { data } = await axios.patch(
+        "https://fabstore-server.onrender.com/api/v1/users/updateUser",
+        { ...values },
+        {
+          headers: {
+            Authorization: `Bearer ${getTokenFromLocalStorage()?.token}`,
+          },
+        }
+      );
+      setIsLoading(false);
+      disptach(
+        setCurrentUser({
+          firstName: data.user.firstName,
+          lastName: data.user.lastName,
+          displayName: data.user.displayName || "",
+        })
+      );
+      window.scrollTo({ top: 0 });
+    } catch (error: any) {
+      toast.error(error.response.data.msg);
+      setIsLoading(false);
+    }
+  };
+
   return (
     <section className='account'>
+      <ToastContainer />
       <h3 className='account__tittle'>Account Details</h3>
       <form className='account__form'>
         {/* First name */}
@@ -13,6 +95,8 @@ const Account = () => {
             name='firstName'
             autoComplete='off'
             id='firstName'
+            value={values.firstName}
+            onChange={handleChange}
             placeholder='First name'
             className='account__input'
           />
@@ -26,6 +110,8 @@ const Account = () => {
             type='text'
             name='lastName'
             autoComplete='off'
+            value={values.lastName}
+            onChange={handleChange}
             id='lastName'
             placeholder='Last name'
             className='account__input'
@@ -40,6 +126,8 @@ const Account = () => {
             type='text'
             name='displayName'
             autoComplete='off'
+            value={values.displayName}
+            onChange={handleChange}
             id='displayName'
             placeholder='Display name'
             className='account__input'
@@ -59,6 +147,8 @@ const Account = () => {
             name='email'
             id='email'
             autoComplete='off'
+            value={values.email}
+            onChange={handleChange}
             placeholder='Email'
             className='account__input'
           />
@@ -75,6 +165,8 @@ const Account = () => {
             name='oldPassword'
             id='oldPassword'
             autoComplete='off'
+            value={values.oldPassword}
+            onChange={handleChange}
             placeholder='Old password'
             className='account__input'
           />
@@ -89,26 +181,37 @@ const Account = () => {
             name='newPassword'
             id='newPassword'
             autoComplete='off'
+            value={values.newPassword}
+            onChange={handleChange}
             placeholder='New password'
             className='account__input'
           />
         </div>
         {/* Repeat new password */}
         <div className='account__inputBox'>
-          <label htmlFor='repeatNewPassword' className='account__label'>
+          <label htmlFor='repeatPassword' className='account__label'>
             Repeat new password *
           </label>
           <input
             type='password'
-            name='repeatNewPassword'
-            id='repeatNewPassword'
+            name='repeatPassword'
+            id='repeatPassword'
             autoComplete='off'
+            value={values.repeatPassword}
+            onChange={handleChange}
+            ref={repeatPasswordRef}
             placeholder='Repeat new password'
             className='account__input'
           />
         </div>
 
-        <button className='account__btn'>Save changes</button>
+        <button
+          className='account__btn'
+          disabled={isLoading}
+          onClick={updateCridentials}
+        >
+          Save changes
+        </button>
       </form>
     </section>
   );

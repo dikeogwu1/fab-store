@@ -13,7 +13,11 @@ import Footer from "../components/Footer";
 import { useEffect } from "react";
 // redux
 import { useDispatch } from "react-redux";
-import { closeProductDropDown, closeShopDropDown } from "../features/modal";
+import {
+  closeMobileNav,
+  closeProductDropDown,
+  closeShopDropDown,
+} from "../features/modal";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,6 +26,7 @@ const Home = () => {
     window.scrollTo({ top: 0 });
     dispatch(closeShopDropDown());
     dispatch(closeProductDropDown());
+    dispatch(closeMobileNav());
   }, []);
 
   return (

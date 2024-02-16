@@ -20,14 +20,35 @@ import {
   toggleProductDropDown,
   toggleShopDropDown,
 } from "../features/modal";
+import { useEffect } from "react";
+import { getTokenFromLocalStorage } from "../utils/functions/localStorage";
+import { userLogin } from "../features/user";
+import axios from "axios";
 
 const Navbar2 = () => {
   const { isLoggedIn } = useSelector((store: storeType) => store.user);
   const { isShopDropDown, isProductDropDown } = useSelector(
     (store: storeType) => store.modal
   );
-
   const dispatch = useDispatch();
+
+  const getCurrentUser = async (url: string) => {
+    try {
+      const { data } = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${getTokenFromLocalStorage()?.token}`,
+        },
+      });
+
+      data.user && dispatch(userLogin());
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getCurrentUser("https://fabstore-server.onrender.com/api/v1/users/showMe");
+  }, []);
 
   return (
     <nav className='navbar2'>

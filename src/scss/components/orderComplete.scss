@@ -32,6 +32,13 @@
     letter-spacing: -0.0375rem;
   }
 
+  &__empty {
+    margin-top: 4rem;
+    color: $neutrals-7;
+    font-family: $inter-font;
+    font-size: 1.875rem;
+  }
+
   &__item {
     display: flex;
     gap: 0.25rem;

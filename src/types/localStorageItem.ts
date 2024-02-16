@@ -1,11 +1,17 @@
-import { product } from "./product";
+export type storedTokenType = {
+  token: string;
+  user: {
+    firstName: string;
+    lastName: string;
+    displayName: string;
+  };
+};
 
-export type localStorageType = [
-  {
-    user: { token: string };
-  },
-  {
-    cartItems: product;
-    color: string;
-  }
-];
+export type storedItemType = {
+  _id: string;
+  name: string;
+  quantity: number;
+  price: number;
+  color: string;
+  img: string;
+}[];

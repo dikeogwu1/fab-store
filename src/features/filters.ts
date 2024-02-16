@@ -3,9 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   filterBy: "",
   filterName: "",
-  priceRange: "",
+  pricesGreaterThan: 0,
+  pricesLessThan: "",
   selectedName: "",
   selectedPrice: "All Prices",
+  limit: 9,
+  searchName: "",
 };
 
 const filterSlice = createSlice({
@@ -16,8 +19,14 @@ const filterSlice = createSlice({
       state.filterBy = action.payload.filterBy;
       state.filterName = action.payload.filterName;
     },
-    setPriceArange: (state, action) => {
-      state.priceRange = action.payload.range;
+    setDispayedFilter: (state, action) => {
+      state.filterName = action.payload.filterName;
+    },
+    setPriceGreaterThan: (state, action) => {
+      state.pricesGreaterThan = action.payload.greaterThan;
+    },
+    setPriceLessThan: (state, action) => {
+      state.pricesLessThan = action.payload.lessThan;
     },
     setFilterName: (state, action) => {
       state.selectedName = action.payload.name;
@@ -25,8 +34,22 @@ const filterSlice = createSlice({
     setFilterPrice: (state, action) => {
       state.selectedPrice = action.payload.price;
     },
+    showMoreProducts: (state, action) => {
+      state.limit = state.limit + action.payload;
+    },
+    searchByName: (state, action) => {
+      state.searchName = action.payload;
+    },
   },
 });
-export const { filterProduct, setFilterName, setFilterPrice, setPriceArange } =
-  filterSlice.actions;
+export const {
+  filterProduct,
+  setFilterName,
+  setFilterPrice,
+  setPriceGreaterThan,
+  setPriceLessThan,
+  setDispayedFilter,
+  showMoreProducts,
+  searchByName,
+} = filterSlice.actions;
 export default filterSlice.reducer;

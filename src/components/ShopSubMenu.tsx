@@ -1,10 +1,33 @@
+import { useDispatch } from "react-redux";
+// redux
 import { useNavigate } from "react-router-dom";
+import { filterProduct } from "../features/filters";
+import { closeShopDropDown } from "../features/modal";
 
 const ShopSubMenu = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleCategoriesClick = () => {
+    dispatch(
+      filterProduct({
+        filterBy: "categories",
+        filterName: `All categories`,
+      })
+    );
     navigate("/shop");
+    dispatch(closeShopDropDown());
+    window.scrollTo({ top: 500 });
+  };
+  const handleCollectionsClick = () => {
+    dispatch(
+      filterProduct({
+        filterBy: "collections",
+        filterName: `All collections`,
+      })
+    );
+    navigate("/shop");
+    dispatch(closeShopDropDown());
   };
 
   return (
@@ -29,7 +52,10 @@ const ShopSubMenu = () => {
         </div>
       </button>
       {/* Second item */}
-      <button className='shopSub__item dropDown'>
+      <button
+        className='shopSub__item dropDown'
+        onClick={handleCollectionsClick}
+      >
         <div className='shopSub__imgBox dropDown'>
           <img
             src='https://res.cloudinary.com/dikeogwu1/image/upload/v1636237758/my%20images/source_fmsoel.jpg'

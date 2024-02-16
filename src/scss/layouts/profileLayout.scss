@@ -3,7 +3,8 @@
   margin-bottom: 5rem;
 
   &__headBack {
-    @include flexJustifyCenterAlignCenter;
+    display: flex;
+    align-items: center;
     gap: 0.25rem;
     background: transparent;
     color: $black-600;

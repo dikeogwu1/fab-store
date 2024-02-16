@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Authenticate from "../layouts/Authenticate";
+import RegisterLayout from "../layouts/RegisterLayout";
 
 const Register = () => {
   useEffect(() => {
@@ -8,7 +8,7 @@ const Register = () => {
 
   return (
     <>
-      <Authenticate isRegister={true} />
+      <RegisterLayout />
     </>
   );
 };

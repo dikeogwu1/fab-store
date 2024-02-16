@@ -1,20 +1,22 @@
 import FilterIcon from "../assets/FilterIcon";
 import { filters } from "../utils/local/listingData";
-import { itemData } from "../utils/local/itemData";
-import { Link } from "react-router-dom";
-import Item from "../components/Item";
 import FilterBtn from "../components/FilterBtn";
+import ShowMore from "../components/ShowMore";
+import { ToastContainer } from "react-toastify";
 // redux
 import { useSelector } from "react-redux";
 import { storeType } from "../store";
 import Sorting from "../components/Sorting";
-import ShowMore from "../components/ShowMore";
+import DisplayedProducts from "./DisplayedProducts";
 
 const AllProducts = () => {
-  const { filterName } = useSelector((store: storeType) => store.filter);
+  const { filterName, filterBy } = useSelector(
+    (store: storeType) => store.filter
+  );
 
   return (
     <section className='allProducts'>
+      <ToastContainer />
       <div className='allProducts__filterBox'>
         <header className='allProducts__filterTools'>
           <div className='allProducts__firstTools'>
@@ -24,7 +26,7 @@ const AllProducts = () => {
               <strong className='allProducts__signText'>Filter</strong>
             </div>
           </div>
-          {/* filter by list, to appear small screen */}
+          {/* filter by list, to appear on small screen */}
           <div className='allProducts__filterList allProducts__filterList--sm'>
             {filters.map((item) => {
               return (
@@ -47,29 +49,24 @@ const AllProducts = () => {
         </header>
 
         <div className='allProducts__listing'>
-          {/* Filter by list, to appear big screen  */}
+          {/* Filter by list, to appear on big screen  */}
           <div className='allProducts__filterList allProducts__filterList--lg'>
             {filters.map((item) => {
               const { id, name, component } = item;
               return (
                 <div className='allroducts__filterPrice' key={id}>
-                  <h4 className='allProducts__topic'>{name}</h4>
+                  {id === 1 ? (
+                    <h4 className='allProducts__topic'>{filterBy}</h4>
+                  ) : (
+                    <h4 className='allProducts__topic'>{name}</h4>
+                  )}
                   <div className='allProducts__filterBy'>{component}</div>
                 </div>
               );
             })}
           </div>
 
-          {/* All products */}
-          <div className='allProducts__listingWrapper'>
-            {itemData.map((item) => {
-              return (
-                <Link to={`/product/${item.id}`} key={item.id}>
-                  <Item item={item} />
-                </Link>
-              );
-            })}
-          </div>
+          <DisplayedProducts />
         </div>
       </div>
       <ShowMore />

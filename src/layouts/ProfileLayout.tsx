@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Camera from "../assets/Camera";
 import ChevronDown from "../assets/ChevronDown";
 import ChevronLeft from "../assets/ChevronLeft";
@@ -7,17 +7,44 @@ import {
   profileListData,
 } from "../utils/local/profileItemsData";
 import ChevronUp from "../assets/ChevronUp";
+import { Link, useNavigate } from "react-router-dom";
+import { getTokenFromLocalStorage } from "../utils/functions/localStorage";
+// redux
+import { useDispatch, useSelector } from "react-redux";
+import { storeType } from "../store";
+import { setCurrentUser, userLogout } from "../features/user";
+import { closeMobileNav } from "../features/modal";
+import { setActiveTap } from "../features/profileTap";
 
 const ProfileLayout = () => {
-  const [activeTab, setActiveTab] = useState<number>(1);
   const [isShowList, setIsShowList] = useState<boolean>(false);
   const [selected, setSelected] = useState<string>("Account");
+  const { firstName, lastName, displayName } = useSelector(
+    (store: storeType) => store.user
+  );
+  const { activeTab } = useSelector((store: storeType) => store.profileTab);
+  const disptach = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const item = getTokenFromLocalStorage();
+    if (item) {
+      disptach(
+        setCurrentUser({
+          firstName: item.user.firstName,
+          lastName: item.user.lastName,
+          displayName: item.user.displayName || "",
+        })
+      );
+    }
+    disptach(closeMobileNav());
+  }, []);
 
   return (
     <section className='profileLayout'>
-      <button className='profileLayout__headBack'>
+      <Link to='/' className='profileLayout__headBack'>
         <ChevronLeft /> back
-      </button>
+      </Link>
       <h2 className='profileLayout__tittle'>My Account</h2>
       <div className='profileLayout__container'>
         <header className='profileLayout__header'>
@@ -25,7 +52,7 @@ const ProfileLayout = () => {
           <div className='profileLayout__logo'>
             <div className='profileLayout__imgBox'>
               <img
-                src='https://randomuser.me/api/portraits/thumb/women/19.jpg'
+                src='https://res.cloudinary.com/dikeogwu1/image/upload/v1708107175/Fabstore%20e-commerce/27470334_7309681_sjxay3.jpg'
                 alt='profile image'
                 className='profileLayout__img'
               />
@@ -33,7 +60,13 @@ const ProfileLayout = () => {
                 <Camera />
               </button>
             </div>
-            <strong className='profileLayout__userName'>Sofia Havertz</strong>
+            {displayName ? (
+              <strong className='profileLayout__userName'>{displayName}</strong>
+            ) : (
+              <strong className='profileLayout__userName'>
+                {firstName} {lastName}
+              </strong>
+            )}
           </div>
           {/* Profile item */}
           <div className='profileLayout__itemBox'>
@@ -57,9 +90,13 @@ const ProfileLayout = () => {
                     }`}
                     key={item.id}
                     onClick={() => {
-                      setActiveTab(item.id);
+                      disptach(setActiveTap(item.id));
                       setSelected(item.name);
                       setIsShowList(false);
+                      if (item.name === "Log Out") {
+                        disptach(userLogout());
+                        navigate("/");
+                      }
                     }}
                   >
                     {item.name}

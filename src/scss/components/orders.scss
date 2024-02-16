@@ -48,6 +48,13 @@
       color: $neutral-07100;
     }
   }
+
+  &__empty {
+    margin-top: 4rem;
+    color: $neutrals-7;
+    font-family: $inter-font;
+    font-size: 1.875rem;
+  }
 }
 
 @media screen and (min-width: 1200px) {

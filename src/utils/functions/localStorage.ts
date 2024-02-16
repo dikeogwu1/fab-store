@@ -1,4 +1,4 @@
-import { storedItemType, storedTokenType } from "../../types/localStorageItem";
+import { storedTokenType } from "../../types/localStorageItem";
 import { product } from "../../types/product";
 
 export const addItemToLocalStorage = (item: product[]) => {

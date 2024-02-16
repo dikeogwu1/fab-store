@@ -20,7 +20,8 @@ export const miniCartData: product[] = [
       { id: 2, name: "Red", hexColor: "#a61f07" },
       { id: 3, name: "Green", hexColor: "#082" },
     ],
-    category: "Men's swiming short",
+    categories: "Men's swiming short",
+    collections: "Swimming Set",
     images: [
       {
         id: 1,
@@ -53,7 +54,8 @@ export const miniCartData: product[] = [
       { id: 2, name: "Black", hexColor: "#000" },
       { id: 3, name: "Green", hexColor: "#082" },
     ],
-    category: "Men's swiming short",
+    categories: "Men's swiming short",
+    collections: "Swimming Set",
     images: [
       {
         id: 1,
@@ -86,7 +88,8 @@ export const miniCartData: product[] = [
       { id: 2, name: "Red", hexColor: "#a61f07" },
       { id: 3, name: "Green", hexColor: "#082" },
     ],
-    category: "Men's swiming short",
+    categories: "Men's swiming short",
+    collections: "Music Set",
     images: [
       {
         id: 1,

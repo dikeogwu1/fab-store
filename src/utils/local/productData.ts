@@ -20,7 +20,8 @@ export const singleProduct: product = {
     { id: 2, name: "Green", hexColor: "#082" },
     { id: 3, name: "Black", hexColor: "#000" },
   ],
-  category: "Men's swiming short",
+  categories: "Men's swiming short",
+  collections: "Swimming Set",
   images: [
     {
       id: 1,

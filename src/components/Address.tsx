@@ -2,7 +2,6 @@ import Edit from "../assets/Edit";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { getTokenFromLocalStorage } from "../utils/functions/localStorage";
-import Spinner from "./Spinner";
 import { truncateText } from "../utils/functions/truncate";
 
 const Address = () => {
@@ -29,7 +28,6 @@ const Address = () => {
       `https://fabstore-server.onrender.com/api/v1/address/showAllMyAddress`
     );
   }, []);
-  console.log(address);
 
   return (
     <section className='address'>
@@ -66,9 +64,11 @@ const Address = () => {
             <div className='address__item' key={_id}>
               <header className='address__header'>
                 <strong className='address__name'>Shipping Address</strong>
-                <button className='address__editBtn'>
-                  <Edit /> Edit
-                </button>
+                {!isLoading && (
+                  <button className='address__editBtn'>
+                    <Edit /> Edit
+                  </button>
+                )}
               </header>
               <div className='address__details'>
                 <strong className='address__detail'>

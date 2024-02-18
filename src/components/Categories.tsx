@@ -14,7 +14,6 @@ import {
 import { storeType } from "../store";
 
 const Categories = () => {
-  // const [selectedButton, setSelectedButton] = useState<string>("");
   const { filterName, filterBy, selectedName } = useSelector(
     (store: storeType) => store.filter
   );

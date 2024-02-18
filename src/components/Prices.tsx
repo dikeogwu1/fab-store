@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { pricesButtons } from "../utils/local/productFilterData";
 // redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setFilterPrice,
   setPriceGreaterThan,
   setPriceLessThan,
 } from "../features/filters";
+import { storeType } from "../store";
 
 const Prices = () => {
-  const [selectedButton, setSelectedButton] = useState<number>(1);
+  const { selectedPrice } = useSelector((store: storeType) => store.filter);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,11 +19,11 @@ const Prices = () => {
       btn.classList.remove("price__btn--active");
       const singleButton = btn as HTMLElement;
 
-      if (parseInt(singleButton.dataset.id!) === selectedButton) {
+      if (singleButton.dataset.name! === selectedPrice) {
         btn.classList.add("price__btn--active");
       }
     });
-  }, [selectedButton]);
+  }, [selectedPrice]);
 
   return (
     <ul className='price'>
@@ -31,9 +32,8 @@ const Prices = () => {
           <li className='price__list' key={btn.id}>
             <button
               className='price__btn'
-              data-id={btn.id}
+              data-name={btn.text}
               onClick={() => {
-                setSelectedButton(btn.id);
                 dispatch(
                   setPriceGreaterThan({ greaterThan: btn.pricesGreaterThan })
                 );

@@ -1,24 +1,36 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import BrandLogo from "./BrandLogo";
 import Close from "../assets/Close";
 import Search from "../assets/Search";
 import ChevronDown from "../assets/ChevronDown";
+import ChevronUp from "../assets/ChevronUp";
 import CartItemsCounter from "./CartItemsCounter";
 import WishListCounter from "./WishListCounter";
 import Instagram from "../assets/Instagram";
 import Facebook from "../assets/Facebook";
 import Youtube from "../assets/Youtube";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { storeType } from "../store";
 import { closeMobileNav } from "../features/modal";
+import {
+  filterProduct,
+  searchByName,
+  setDispayedFilter,
+  setFilterName,
+} from "../features/filters";
+import { productSubData } from "../utils/local/productSubNavData";
 
 const MobileNavbar = () => {
+  const [isShopSub, setIsShopSub] = useState(false);
+  const [isProduct, setIsProduct] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const { isLoggedIn } = useSelector((store: storeType) => store.user);
   const { isMobileNav } = useSelector((store: storeType) => store.modal);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isMobileNav) {
@@ -59,6 +71,46 @@ const MobileNavbar = () => {
     }
   };
 
+  // Submiting mobile search
+  const handleSubmit = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void => {
+    e.preventDefault();
+    if (inputRef.current?.value) {
+      dispatch(searchByName(inputRef.current?.value));
+      dispatch(setFilterName({ name: "" }));
+      dispatch(setDispayedFilter({ filterName: inputRef.current.value }));
+      dispatch(closeMobileNav());
+      navigate("/shop");
+    }
+  };
+
+  // handle clicking on categories button
+  const handleCategoriesClick = () => {
+    setIsShopSub(false);
+    dispatch(
+      filterProduct({
+        filterBy: "categories",
+        filterName: `All categories`,
+      })
+    );
+    navigate("/shop");
+    dispatch(closeMobileNav());
+  };
+
+  // handle clicking on collections button
+  const handleCollectionsClick = () => {
+    setIsShopSub(false);
+    dispatch(
+      filterProduct({
+        filterBy: "collections",
+        filterName: `All collections`,
+      })
+    );
+    navigate("/shop");
+    dispatch(closeMobileNav());
+  };
+
   return (
     <dialog ref={dialogRef} className='mobileNav' onClick={handleClick}>
       <div className='mobileNav__wrapper'>
@@ -70,13 +122,14 @@ const MobileNavbar = () => {
             </button>
           </header>
           <form className='mobileNav__searchBar'>
-            <button className='mobileNav__searchBtn'>
+            <button className='mobileNav__searchBtn' onClick={handleSubmit}>
               <Search />
             </button>
             <input
               type='text'
               className='mobileNav__input'
               placeholder='Search'
+              ref={inputRef}
             />
           </form>
           <ul className='mobileNav__list'>
@@ -85,14 +138,90 @@ const MobileNavbar = () => {
                 Home
               </Link>
             </li>
-
-            <li className='mobileNav__item'>
-              <button className='mobileNav__dropDown'>Shop</button>
-              <ChevronDown />
+            {/* Shop */}
+            <li
+              className={`mobileNav__item ${
+                isShopSub && "mobileNav__item--open"
+              }`}
+            >
+              <button
+                className='mobileNav__dropDown'
+                onClick={() => setIsShopSub(!isShopSub)}
+              >
+                <span>Shop</span>
+                <span>{isShopSub ? <ChevronUp /> : <ChevronDown />}</span>
+              </button>
+              <div className='mobileNav__subItem'>
+                <button
+                  className='mobileNav__sub'
+                  onClick={handleCategoriesClick}
+                >
+                  Categories
+                </button>
+                <button
+                  className='mobileNav__sub'
+                  onClick={handleCollectionsClick}
+                >
+                  Collections
+                </button>
+              </div>
             </li>
-            <li className='mobileNav__item'>
-              <button className='mobileNav__dropDown'>Product</button>
-              <ChevronDown />
+
+            {/* Product */}
+            <li
+              className={`mobileNav__item ${
+                isProduct && "mobileNav__item--open"
+              }`}
+            >
+              <button
+                className='mobileNav__dropDown'
+                onClick={() => setIsProduct(!isProduct)}
+              >
+                <span>Product</span>
+                <span>{isProduct ? <ChevronUp /> : <ChevronDown />}</span>
+              </button>
+              <div className='mobileNav__subItem'>
+                {productSubData.map((item) => {
+                  const { id, type, data } = item;
+                  return (
+                    <div key={id}>
+                      <strong className='mobileNav__subTopic'>{type}</strong>
+                      <div>
+                        {data.map((list) => {
+                          return (
+                            <button
+                              className='mobileNav__sub'
+                              key={list.id}
+                              onClick={() => {
+                                setIsProduct(false);
+                                dispatch(searchByName(""));
+                                dispatch(
+                                  filterProduct({
+                                    filterBy: type.toLowerCase(),
+                                    filterName: list.name,
+                                  })
+                                );
+
+                                if (list.name === "Men’s Set") {
+                                  dispatch(setFilterName({ name: "Men Set" }));
+                                } else if (list.name === "Lady’s Set") {
+                                  dispatch(setFilterName({ name: "Lady Set" }));
+                                } else {
+                                  dispatch(setFilterName({ name: list.name }));
+                                }
+                                dispatch(closeMobileNav());
+                                navigate("/shop");
+                              }}
+                            >
+                              {list.name}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </li>
 
             <li className='mobileNav__item'>

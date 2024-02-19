@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { pricesButtons } from "../utils/local/productFilterData";
 // redux
 import { useDispatch, useSelector } from "react-redux";

@@ -13,6 +13,8 @@ body {
   font-feature-settings: "clig" off, "liga" off;
   background: $primary-white;
   position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 // buttons
 button {
